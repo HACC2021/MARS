@@ -5,10 +5,6 @@ from .models import formdata
 
 def home(request):
     return render(request, 'home.html', )
-'''
-def hmar(request):
-    return render(request, 'hmar.html')
-'''
 
 def emergency(request):
     return render(request, 'emergency.html')
@@ -19,5 +15,8 @@ def login(request):
 def sighting(request):
     return render(request, 'sighting.html')
 
+def hmar(request):
+    return render(request, 'hmar.html')
 
-
+def report(request):
+    return render(request, 'report.html')
