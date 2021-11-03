@@ -8,5 +8,5 @@ urlpatterns = [
     path('login/', views.login, name = 'login'),
     path('sighting/', views.sighting, name = 'sighting'),
     path('hmar/', views.hmar, name='hmar'),
-    path('report/', views.report, name = 'report')
+    #path('<hmar/int:ticketnum>/', views.report, name = 'report')
 ]

@@ -18,5 +18,5 @@ def sighting(request):
 def hmar(request):
     return render(request, 'hmar.html')
 
-def report(request):
+def report(request, ticketnum):
     return render(request, 'report.html')
