@@ -10,4 +10,5 @@ urlpatterns = [
     path('sighting/', views.sighting, name = 'sighting'),
 
 
+
 ]
