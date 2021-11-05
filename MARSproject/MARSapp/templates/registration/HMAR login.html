@@ -15,7 +15,18 @@
     </header>
     <hr class="solid" />
   </head>
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
 
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
   <body>
     <style>
       h1 {
@@ -32,27 +43,14 @@
       Login
     </h1>
     <br /><br />
-    <p>
-  <form method="POST" >
-    {% csrf_token %}
-    <center><table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="/MARSapp/hmar/" />
-      {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-      </center>
-  </form>
-    </p>
+    <div>
+      <form action="/login.php">
+        <label for="uname">Username:</label><br />
+        <input type="text" name="uname" required> <br /><br /><br />
+        <label for="pass">Password:</label><br />
+        <input type="password" name="pass" required ><br /><br /><br />
+        <input type="submit" name="submit" value="submit" />
+      </form>
+    </div>
   </body>
-
 </html>

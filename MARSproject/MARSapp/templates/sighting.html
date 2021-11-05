@@ -25,32 +25,31 @@
     Sighting Form
   </h1>
   <hr class="solid" />
-  <form>
-    <form action="">
+  <form method = "post" action = "{% url 'submitform' %}">
+      {% csrf_token %}
       <label for="fname">First Name*:</label><br />
-      <input type="text" id="fname" name="fname" <br /><br /><br />
-      <label for="fname">Last Name*:</label><br />
-      <input type="text" id="lname" name="lname" <br /><br /><br />
+      <input type="text" id="fname" name="fname"> <br /><br /><br />
+      <label for="lname">Last Name*:</label><br />
+      <input type="text" id="lname" name="lname"> <br /><br /><br />
 
-      <form action=""></form>
       <label for="number">Phone Number</label>
       <br />
-      <input for="text" id="pnumber" /><br /><br />
+      <input for="text" id="pnumber" name ="pnumber" /><br /><br />
 
       <hr class="solid" />
 
       <label for="datetime">Date and time of sighting*:</label><br />
-      <input type="datetime-local" />
+      <input type="datetime-local" name = "datetime"/>
 
       <hr class="solid" />
       <h2>Animal Characteristics</h2>
-      <input type="checkbox" id="Bleached" name="Animal Characteristics" />
+      <input type="checkbox" id="Bleached" name="Animal Characteristics" value = "Bleached"/>
       <label for="Bleached"> Bleached</label><br />
-      <input type="checkbox" id="Scars" name="Animal Characteristics" />
+      <input type="checkbox" id="Scars" name="Animal Characteristics" value = "Scars" />
       <label for="Scars"> Scars</label><br />
-      <input type="checkbox" id="Bands" name="Animal Characteristics" />
+      <input type="checkbox" id="Bands" name="Animal Characteristics" value = "Bands"/>
       <label for="Bands"> Bands</label><br />
-      <input type="checkbox" id="Tags" name="Animal Characteristics" />
+      <input type="checkbox" id="Tags" name="Animal Characteristics" value = "Tags"/>
       <label for="Tags"> Tags </label>
       <hr class="solid" />
       <h2>Island</h2>
@@ -69,87 +68,83 @@
       <hr class="solid" />
       <h2>Number of Beachgoers within 100 feet of the Animal</h2>
       <label for="interaction1">Enter number of beachgoers:</label><br />
-      <input type="text" id="interaction1" name"interaction1">
+      <input type="text" id="interaction1" name = "interaction1">
       <hr class="solid" />
       <h2>Humans</h2>
 
-      <form action="">
-        <label for="beach goers"
-          >How many beach goers are within 100 feet of the animal?</label
-        ><br />
-        <select name="humans" id="humans">
-          <option value="0-25">0-25</option>
-          <option value="26-50">26-50</option>
-          <option value="51-75">51-75</option>
-          <option value="76-100">76-100</option>
-          <option value="101-125">101-125</option>
-          <option value="126-150">126-150</option>
-          <option value="151-175">151-175</option>
-          <option value="176-200">176-200</option>
-        </select>
+      <label for="beach goers"
+        >How many beach goers are within 100 feet of the animal?</label
+      ><br />
+      <select name="humans" id="humans">
+        <option value="0-25">0-25</option>
+        <option value="26-50">26-50</option>
+        <option value="51-75">51-75</option>
+        <option value="76-100">76-100</option>
+        <option value="101-125">101-125</option>
+        <option value="126-150">126-150</option>
+        <option value="151-175">151-175</option>
+        <option value="176-200">176-200</option>
+      </select>
 
-        <link rel="stylesheet" type="text/css" href="./style.css" />
-        <script src="./index.js"></script>
+      <link rel="stylesheet" type="text/css" href="./style.css" />
+      <script src="./index.js"></script>
 
-        <body>
-          <hr class="solid" />
-          <p>
-            If possible, please share your location with us to expedite animal
-            protection.
-          </p>
+      <body>
+        <hr class="solid" />
+        <p>
+          If possible, please share your location with us to expedite animal
+          protection.
+        </p>
 
-          <button onclick="getLocation()">Click Here</button>
+        <button onclick="getLocation()" type="button">Click Here</button>
 
-          <p id="demo"></p>
 
-          <script>
-            var x = document.getElementById("demo");
+        <p id="demo"></p>
 
-            function getLocation() {
-              if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                  showPosition,
-                  showError
-                );
-              } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-              }
+        <script>
+          var x = document.getElementById("demo");
+
+          function getLocation() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+              x.innerHTML = "Geolocation is not supported by this browser.";
             }
+          }
 
-            function showPosition(position) {
-              x.innerHTML =
-                "Latitude: " +
-                position.coords.latitude +
-                "<br>Longitude: " +
-                position.coords.longitude;
-            }
+          function showPosition(position) {
+            x.innerHTML =
+              "Latitude: " +
+              position.coords.latitude +
+              "<br>Longitude: " +
+              position.coords.longitude;
+          }
 
-            function showError(error) {
-              switch (error.code) {
-                case error.PERMISSION_DENIED:
-                  x.innerHTML = "User denied the request for Geolocation.";
-                  break;
-                case error.POSITION_UNAVAILABLE:
-                  x.innerHTML = "Location information is unavailable.";
-                  break;
-                case error.TIMEOUT:
-                  x.innerHTML = "The request to get user location timed out.";
-                  break;
-                case error.UNKNOWN_ERROR:
-                  x.innerHTML = "An unknown error occurred.";
-                  break;
-              }
+          function showError(error) {
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation.";
+                break;
+              case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable.";
+                break;
+              case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out.";
+                break;
+              case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred.";
+                break;
             }
-          </script>
-          <hr class="solid" />
-          <h2>Submit a Photo</h2>
-          <form action="">
-            <input type="file" id="myFile" name="filename" />
-            <input type="submit" />
-          </form>
-          <hr class="solid" />
-        </body>
-      </form>
-    </form>
+          }
+        </script>
+        <hr class="solid" />
+        <h2>Submit a Photo</h2>
+        <input type="file" id="myFile" name="filename" />
+        <input type="submit" name = "submit" value = "submitted"/>
+        <script>
+
+        </script>
+        <hr class="solid" />
+      </body>
   </form>
 </html>
