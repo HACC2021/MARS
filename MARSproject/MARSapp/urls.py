@@ -3,10 +3,10 @@ from . import views
 from django.urls import include
 
 urlpatterns = [
-    path('', views.userlanding, name='userlanding'),
-    path('hmar/', views.hmarlanding, name='hmarlanding'),
-    path('emergency/', views.emergency, name = 'emergencyland'),
-    path("loginpage/", views.loginpage, name = 'login'),
-    path('basicpage/', views.basicpage, name = 'form')
-
+    path('', views.home, name='home'),
+    path('emergency/', views.emergency, name = 'emergency'),
+    path('login/', views.login, name = 'login'),
+    path('sighting/', views.sighting, name = 'sighting'),
+    path('hmar/', views.hmar, name='hmar'),
+    #path('<hmar/int:ticketnum>/', views.report, name = 'report')
 ]
