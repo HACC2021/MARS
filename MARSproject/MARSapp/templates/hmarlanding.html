@@ -55,7 +55,7 @@
         </tr>
         {% for i in all_data %}
         <tr style="text-align: center;">
-          <td><a href='Ticket_Number';>{{ i.Ticket_Number }}</a></td>
+          <td><a href='{{ i.Ticket_Number }}';>{{ i.Ticket_Number }}</a></td>
           <td>{{ i.Date }}</td>
           <td>{{ i.Time }}</td>
           <td>{{ i.Observer }}</td>

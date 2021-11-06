@@ -5,6 +5,7 @@ from pymongo import MongoClient
 client = MongoClient("mongodb+srv://Payton_Ikeda:mililanihs@cluster0.lrsp5.mongodb.net/hacc_sample_database?retryWrites=true&w=majority")
 database = client["hacc_sample_database"]
 collection = database["hacc_sample_collection"]
+upload = database["hacc_upload_collection"]
 
 
 def home(request):
@@ -38,10 +39,10 @@ def submitform(request):
         humans = (request.POST.get('humans'))
         filename = (request.POST.get('filename'))
         latitude = (request.POST.get('latitude'))
-        print(fname)
-        print(type((fname)))
-        submission_dict["first name"].append(fname)
-        print(submission_dict)
+
+
+        submission_dict["first name"] = fname
+        """
         submission_dict["first name":fname]
         submission_dict["last name":lname]
         submission_dict["phone number":pnumber]
@@ -51,7 +52,7 @@ def submitform(request):
         submission_dict["behavior":behavior]
         submission_dict["interaction":interaction]
         submission_dict["humans":humans]
-        submission_dict["filename":filename]
+        submission_dict["filename":filename]"""
         print(submission_dict)
 
 
@@ -73,5 +74,3 @@ def editform(request):
 def viewspecificreport(request):
     return render(request, 'viewspecificreport.html')
 
-for i in collection.find({}):
-    print(i)
