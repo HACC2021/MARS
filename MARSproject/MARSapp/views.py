@@ -10,10 +10,6 @@ upload = database["hacc_upload_collection"]
 
 def home(request):
     return render(request, 'home.html', )
-'''
-def hmar(request):
-    return render(request, 'hmar.html')
-'''
 
 def emergency(request):
     return render(request, 'emergency.html')
