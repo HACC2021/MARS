@@ -32,29 +32,29 @@ def submitform(request):
         lname = (request.POST.get('lname'))
         pnumber = (request.POST.get('pnumber'))
         datetime = (request.POST.get('datetime'))
-        animalcharacteristics = (request.POST.get('Animal Characteristics'))
-        print(animalcharacteristics)
+        animalcharacteristics = (request.POST.getlist('Animal Characteristics[]'))
         island = (request.POST.get('Island'))
         behavior = (request.POST.get('behavior'))
         interaction = (request.POST.get('interaction1'))
         humans = (request.POST.get('humans'))
         filename = (request.POST.get('filename'))
         latitude = (request.POST.get('latitude'))
-
-
-
-
-        submission_dict["first name"]= fname
-        submission_dict["last name"]= lname
-        submission_dict["phone number"]= pnumber
-        submission_dict["datetime"]=datetime
-        submission_dict["animal characteristics"] = animalcharacteristics
-        submission_dict["island"]=island
-        submission_dict["behavior"]=behavior
-        submission_dict["interaction"]= interaction
-        submission_dict["humans"]= humans
-        submission_dict["filename"]=filename
-        print(submission_dict)
+        try:
+            submission_dict["Date"] = datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3]
+            submission_dict["Time"] = datetime[11] + datetime[12] + datetime[14] + datetime[15]
+            submission_dict["Ticket_Number"] = "OS" +  datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15]
+            submission_dict["Observer"] = fname + " " + lname
+            submission_dict["Observer_Contact_Number"]= pnumber
+            submission_dict["Observer_Initals"] = fname[0] + lname[0]
+            submission_dict["animal characteristics"] = animalcharacteristics
+            submission_dict["island"]=island
+            submission_dict["behavior"]=behavior
+            submission_dict["interaction"]= interaction
+            submission_dict["humans"]= humans
+            submission_dict["filename"]=filename
+            upload.insert_one(submission_dict)
+        except IndexError:
+            print()
 
 
     return render(request, 'thankyou.html')
