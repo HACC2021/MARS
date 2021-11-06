@@ -32,7 +32,8 @@ def submitform(request):
         lname = (request.POST.get('lname'))
         pnumber = (request.POST.get('pnumber'))
         datetime = (request.POST.get('datetime'))
-        animalcharacteristics = (request.POST.get('AnimalCharacteristics'))
+        animalcharacteristics = (request.POST.get('Animal Characteristics'))
+        print(animalcharacteristics)
         island = (request.POST.get('Island'))
         behavior = (request.POST.get('behavior'))
         interaction = (request.POST.get('interaction1'))
@@ -41,18 +42,18 @@ def submitform(request):
         latitude = (request.POST.get('latitude'))
 
 
-        submission_dict["first name"] = fname
-        """
-        submission_dict["first name":fname]
-        submission_dict["last name":lname]
-        submission_dict["phone number":pnumber]
-        submission_dict["datetime":datetime]
-        submission_dict["animal characteristics":animalcharacteristics]
-        submission_dict["island":island]
-        submission_dict["behavior":behavior]
-        submission_dict["interaction":interaction]
-        submission_dict["humans":humans]
-        submission_dict["filename":filename]"""
+
+
+        submission_dict["first name"]= fname
+        submission_dict["last name"]= lname
+        submission_dict["phone number"]= pnumber
+        submission_dict["datetime"]=datetime
+        submission_dict["animal characteristics"] = animalcharacteristics
+        submission_dict["island"]=island
+        submission_dict["behavior"]=behavior
+        submission_dict["interaction"]= interaction
+        submission_dict["humans"]= humans
+        submission_dict["filename"]=filename
         print(submission_dict)
 
 
