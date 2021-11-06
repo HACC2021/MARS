@@ -16,3 +16,6 @@ class formdata(forms.ModelForm):
             'number_of_beach_goers',
             'picture',
         ]
+
+# BC we are using mongo, we dont need to use djangos data base.
+# we only used mongo last year becuase of graphs.

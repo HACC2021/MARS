@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>Login</title>
+
+    <header>
+      <img
+      src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+      style="vertical-align: middle;" width="50" height="50">
+      <span style="vertical-align: middle;">Hawaii Marine Animal Response</span>
+    </header>
+    <hr class="solid" />
+  </head>
+
+  <body>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+      div {
+        text-align: center;
+      }</style
+    ><br /><br />
+    <h1>
+      Login
+    </h1>
+    <br /><br />
+    <p>
+  <form method="POST" >
+    {% csrf_token %}
+    <center><table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="login" />
+    <input type="hidden" name="next" value="/MARSapp/hmar/" />
+      {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+      </center>
+  </form>
+    </p>
+  </body>
+
+</html>
