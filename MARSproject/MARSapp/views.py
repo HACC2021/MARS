@@ -72,3 +72,6 @@ def editform(request):
 
 def viewspecificreport(request):
     return render(request, 'viewspecificreport.html')
+
+for i in collection.find({}):
+    print(i)

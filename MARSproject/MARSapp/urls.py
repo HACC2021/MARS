@@ -11,7 +11,7 @@ urlpatterns = [
     path('hmar/', views.hmar, name='hmar'),
     path('editform/', views.editform, name = 'editform'),
     path('viewspecificreport/', views.viewspecificreport, name = 'viewspecificreport'),
-    path('submitform/', views.submitform, name = 'submitform')
+    path('submitform/', views.submitform, name = 'submitform'),
 
 
 

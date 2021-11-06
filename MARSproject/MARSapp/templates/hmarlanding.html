@@ -55,17 +55,19 @@
         </tr>
         {% for i in all_data %}
         <tr style="text-align: center;">
-          <td></td>
+          <td><a href='Ticket_Number';>{{ i.Ticket_Number }}</a></td>
           <td>{{ i.Date }}</td>
           <td>{{ i.Time }}</td>
           <td>{{ i.Observer }}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Initials }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Sector }}</td>
+          <td>{{ i.Location }}</td>
+          <td>{{ i.Seal_Present }}</td>
+          <td>{{ i.Size }}</td>
+          <td> {{ i.Sex }}</td>
+          <td> {{ i.Beach_Position }} </td>
         </tr>
         {% endfor %}
         <tr style="text-align: center;">
