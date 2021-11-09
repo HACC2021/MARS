@@ -1,6 +1,4 @@
 from django.db import models
-
-
 # Create your models here.
 
 class formdata(models.Model):
@@ -15,7 +13,6 @@ class formdata(models.Model):
     animal_behavior = models.CharField(max_length=100)
     number_of_beach_goers = models.IntegerField()
     picture = models.FileField(upload_to=None)
-
 
 
 
