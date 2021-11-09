@@ -76,7 +76,7 @@ def submitform(request):
 
 def hmar(request):
     if not request.user.is_authenticated:
-        return render(request, 'emergency.html')
+        return render(request, 'error.html')
     context = {
     "all_data" : collection.find({})
     }
