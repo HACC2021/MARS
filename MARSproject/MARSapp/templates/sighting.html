@@ -25,7 +25,7 @@
     Sighting Form
   </h1>
   <hr class="solid" />
-  <form method = "post" action = "{% url 'submitform' %}">
+  <form enctype="multipart/form-data" method="post" action="{% url 'submitform' %}"  >
       {% csrf_token %}
       <label for="fname">First Name*:</label><br />
       <input type="text" id="fname" name="fname"> <br /><br /><br />
@@ -43,13 +43,13 @@
 
       <hr class="solid" />
       <h2>Animal Characteristics</h2>
-      <input type="checkbox" id="Bleached" name="Animal Characteristics" value = "Bleached"/>
+      <input type="checkbox" id="Bleached" name="Animal Characteristics[]" value = "Bleached">
       <label for="Bleached"> Bleached</label><br />
-      <input type="checkbox" id="Scars" name="Animal Characteristics" value = "Scars"/>
+      <input type="checkbox" id="Scars"  name="Animal Characteristics[]" value = "Scars">
       <label for="Scars"> Scars</label><br />
-      <input type="checkbox" id="Bands" name="Animal Characteristics" value = "Bands"/>
+      <input type="checkbox" id="Bands" name="Animal Characteristics[]" value = "Bands">
       <label for="Bands"> Bands</label><br />
-      <input type="checkbox" id="Tags" name="Animal Characteristics" value = "Tags"/>
+      <input type="checkbox" id="Tags" name="Animal Characteristics[]" value = "Tags">
       <label for="Tags"> Tags </label>
       <hr class="solid" />
       <h2>Island</h2>
@@ -65,10 +65,6 @@
         >Interactions going on between people and animal:</label
       ><br />
       <input type="text" id="behavior1" name="behavior" />
-      <hr class="solid" />
-      <h2>Number of Beachgoers within 100 feet of the Animal</h2>
-      <label for="interaction1">Enter number of beachgoers:</label><br />
-      <input type="text" id="interaction1" name = "interaction1">
       <hr class="solid" />
       <h2>Humans</h2>
 
@@ -99,7 +95,7 @@
         <button onclick="getLocation()" type="button">Click Here</button>
 
 
-        <p id="demo"></p>
+        <p id="demo" name="coordinates"></p>
 
         <script>
           var x = document.getElementById("demo");
@@ -139,11 +135,8 @@
         </script>
         <hr class="solid" />
         <h2>Submit a Photo</h2>
-        <input type="file" id="myFile" name="filename" />
+        <input type="file" id="myFile" name="photo" />
         <input type="submit" name = "submit" value = "submitted"/>
-        <script>
-
-        </script>
         <hr class="solid" />
       </body>
   </form>
