@@ -8,7 +8,7 @@ import gridfs
 
 client = MongoClient("mongodb+srv://Payton_Ikeda:mililanihs@cluster0.lrsp5.mongodb.net/hacc_sample_database?retryWrites=true&w=majority")
 database = client["hacc_sample_database"]
-collection = database["hacc_sample_collection"] #for all data
+collection = database["hacc_sample_seal_data"] #for all data
 upload = database["hacc_upload_collection"] #for report submissions
 
 fs = gridfs.GridFS(database)
@@ -80,7 +80,8 @@ def hmar(request):
     context = {
     "all_data" : collection.find({})
     }
-    # print(context)
+
+    #print(type(context["all_data"]))
     return render(request, 'hmarlanding.html',context)
 
 
