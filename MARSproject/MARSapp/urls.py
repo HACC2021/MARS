@@ -10,9 +10,6 @@ urlpatterns = [
     path('sighting/', views.sighting, name = 'sighting'),
     path('hmar/', views.hmar, name='hmar'),
     path('editform/', views.editform, name = 'editform'),
-    path('viewspecificreport/', views.viewspecificreport, name = 'viewspecificreport'),
     path('submitform/', views.submitform, name = 'submitform'),
-
-
-
+    path('hmar/<str:ID>', views.specificreport, name = 'specific-report'),
 ]

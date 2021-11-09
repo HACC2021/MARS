@@ -52,11 +52,13 @@
   </head>
   <body>
 
-   <div>
-    <form action="/ticket.php">
-    <label for="ticket">Ticket Number:</label><br>
-      <input type="text" id="ticket" name="ticket"
-
+<!--   <div>-->
+<!--    <form action="/ticket.php">-->
+<!--    <label for="ticket">Ticket Number:</label><br>-->
+<!--      <input type="text" id="ticket" name="ticket"-->
+    {% for i in report_data %}
+    <div>{{ i.Ticket_Number }}</div>
+    {% endfor %}
     </footer>
 
      <!--
@@ -156,5 +158,5 @@ table, th, td {
 </table>
 
 
-  </body>
+</body>
 </html>
