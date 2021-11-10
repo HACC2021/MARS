@@ -142,7 +142,6 @@
     <div>
         {% for i in report_data %}
         <label for="ticket">Ticket Number: {{ i.Ticket_Number }}</label><br />
-        {% endfor %}
         <div class="centered"></div>
         <br />
 
@@ -154,44 +153,44 @@
                 <th>______</th>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Date</td>
+                <td>{{i.Date}}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Time</td>
+                <td>{{i.Time}}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Hotline Operator Initials</td>
+                <td>{{i.Hotline_Operator_Initials}}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Ticket Type</td>
+                <td>{{ i.Ticket_Type }}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Size</td>
+                <td>{{ i.Size }}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Sector</td>
+                <td>{{ i.Sector }}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Observer</td>
+                <td>{{ i.Observer }}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Observer Contact Number</td>
+                <td>{{ i.Observer_Contact_Number }}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td> Observer Initials</td>
+                <td>{{ i.Observer_Initials }}</td>
               </tr>
               <tr>
-                <td>data</td>
-                <td>data</td>
+                <td>Location</td>
+                <td>{{ i.Location }}</td>
               </tr>
             </table>
           </div>
@@ -200,14 +199,14 @@
             <div class="split right">
               <br /><br />
               <div class="centered" class="button big-btn">
-                {% for i in Ticket_ID %}
-                <form action="{{ url 'i.ID' }}">
-                {% endfor %}
+                <form action="{% url 'editform' ID=i.Ticket_Number %}">
                    <input type="submit" value="Edit Field" />
                 </form>
+                {% endfor %}
 
 
-<!--                <a href='{{ i.ID }}';>Test</a>-->
+
+
 <!--                <button type="button">Edit Fields</button><br />-->
 
                 <br />
