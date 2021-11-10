@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'MARSapp'
 ]
-# 'MARSapp
-# 0.apps.MarsappConfig',
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -145,6 +144,3 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'MARSproject/polished-citron-331519-02afac49b6bb.json')
 )
 GS_DEFAULT_ACL = 'authenticatedRead'
-
-#print(config(DB_HOST))
-
