@@ -65,12 +65,8 @@ def submitform(request):
             with open(photo, 'rb') as f:
                 contents = f.read()
             fs.put(contents, filename=photo)
-
-
         except IndexError:
             print()
-
-
     return render(request, 'thankyou.html')
 
 
@@ -80,13 +76,8 @@ def hmar(request):
     context = {
     "all_data" : collection.find({})
     }
-
     #print(type(context["all_data"]))
-    return render(request, 'hmarlanding.html',context)
-
-
-def editform(request):
-    return render(request, 'editform.html')
+    return render(request, 'hmarlanding_new.html',context)
 
 
 def specificreport(request,ID):
@@ -95,7 +86,12 @@ def specificreport(request,ID):
     context = {
         "report_data" : collection.find({ "Ticket_Number": ID})
     }
-    return render(request, 'viewspecificreport.html', context)
+    return render(request, 'viewspecificreport_new.html', context)
 
 
-
+def editform(request, ID):
+    context = {
+        "Ticket_ID": {"ID": ID},
+        "report_data": collection.find({ "Ticket_Number": ID})
+    }
+    return render(request, 'editform.html')

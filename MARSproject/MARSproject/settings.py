@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pl5e9jsl-7u$$rdad7rqx7dgpgeputq7segn*oz#-gx7nlz_+u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'MARSapp'
 ]
-# 'MARSapp.apps.MarsappConfig',
+# 'MARSapp
+# 0.apps.MarsappConfig',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
