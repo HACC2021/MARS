@@ -9,7 +9,7 @@ urlpatterns = [
     path("login/", views.login, name = 'login'),
     path('sighting/', views.sighting, name = 'sighting'),
     path('hmar/', views.hmar, name='hmar'),
-    path('editform/', views.editform, name = 'editform'),
     path('submitform/', views.submitform, name = 'submitform'),
     path('hmar/<str:ID>', views.specificreport, name = 'specific-report'),
+    path('hmar/<str:ID>', views.editform, name='editform')
 ]

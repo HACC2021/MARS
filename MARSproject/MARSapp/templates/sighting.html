@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/style.css" />
 
     <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
+
   </head>
   <!-- this is the start of content -->
   <header>
@@ -25,38 +25,38 @@
     Sighting Form
   </h1>
   <hr class="solid" />
-  <form enctype="multipart/form-data" method="post" action="{% url 'submitform' %}"  >
+  <form method="post" onsubmit="return validateForm()" action = "{% url 'submitform' %}" enctype="multipart/form-data" name="myForm">
       {% csrf_token %}
       <label for="fname">First Name*:</label><br />
-      <input type="text" id="fname" name="fname"> <br /><br /><br />
+      <input required type="text" id="fname" name="fname"> <br /><br /><br />
       <label for="lname">Last Name*:</label><br />
-      <input type="text" id="lname" name="lname"> <br /><br /><br />
+      <input required type="text" id="lname" name="lname"> <br /><br /><br />
 
       <label for="number">Phone Number</label>
       <br />
-      <input for="text" id="pnumber" name ="pnumber" /><br /><br />
+      <input required for="text" id="pnumber" name ="pnumber" /><br /><br />
 
       <hr class="solid" />
 
       <label for="datetime">Date and time of sighting*:</label><br />
-      <input type="datetime-local" name = "datetime"/>
+      <input required type="datetime-local" name = "datetime"/>
 
       <hr class="solid" />
       <h2>Animal Characteristics</h2>
-      <input type="checkbox" id="Bleached" name="Animal Characteristics[]" value = "Bleached">
+      <input required type="checkbox" id="Bleached" name="Animal Characteristics[]" value = "Bleached">
       <label for="Bleached"> Bleached</label><br />
-      <input type="checkbox" id="Scars"  name="Animal Characteristics[]" value = "Scars">
+      <input required type="checkbox" id="Scars"  name="Animal Characteristics[]" value = "Scars">
       <label for="Scars"> Scars</label><br />
-      <input type="checkbox" id="Bands" name="Animal Characteristics[]" value = "Bands">
+      <input required type="checkbox" id="Bands" name="Animal Characteristics[]" value = "Bands">
       <label for="Bands"> Bands</label><br />
-      <input type="checkbox" id="Tags" name="Animal Characteristics[]" value = "Tags">
+      <input required type="checkbox" id="Tags" name="Animal Characteristics[]" value = "Tags">
       <label for="Tags"> Tags </label>
       <hr class="solid" />
       <h2>Island</h2>
 
-      <input type="radio" id="Oahu" name="Island" value="Oahu" />
+      <input required type="radio" id="Oahu" name="Island" value="Oahu" />
       <label for="html">Oahu</label><br />
-      <input type="radio" id="Molokai" name="Island" value="Molokai" />
+      <input required type="radio" id="Molokai" name="Island" value="Molokai" />
       <label for="css">Molokai</label><br />
 
       <hr class="solid" />
@@ -64,7 +64,7 @@
       <label for="behavior1"
         >Interactions going on between people and animal:</label
       ><br />
-      <input type="text" id="behavior1" name="behavior" />
+      <input required type="text" id="behavior1" name="behavior" />
       <hr class="solid" />
       <h2>Humans</h2>
 
@@ -135,8 +135,8 @@
         </script>
         <hr class="solid" />
         <h2>Submit a Photo</h2>
-        <input type="file" id="myFile" name="photo" />
-        <input type="submit" name = "submit" value = "submitted"/>
+        <input required type="file" id="myFile" name="photo" accept="image/*, video/*"/>
+        <input required type="submit" name = "submit" value="Submit"/>
         <hr class="solid" />
       </body>
   </form>
