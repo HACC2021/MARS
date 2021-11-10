@@ -2,12 +2,13 @@ from django.shortcuts import render
 from pymongo import MongoClient
 from django.conf import settings
 from PIL import Image
+from decouple import config
 import gridfs
 
 
 # Create your views here.
 
-client = MongoClient("mongodb+srv://Payton_Ikeda:mililanihs@cluster0.lrsp5.mongodb.net/hacc_sample_database?retryWrites=true&w=majority")
+client = MongoClient(config('DB_HOST'))
 database = client["hacc_sample_database"]
 collection = database["hacc_sample_seal_data"] #for all data
 upload = database["hacc_upload_collection"] #for report submissions
