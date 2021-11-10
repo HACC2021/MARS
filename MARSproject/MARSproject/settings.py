@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from google.oauth2 import service_account
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pl5e9jsl-7u$$rdad7rqx7dgpgeputq7segn*oz#-gx7nlz_+u'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,10 +81,10 @@ WSGI_APPLICATION = 'MARSproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'myFirstDatabase',
+        'NAME': config('DB_NAME'),
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host':'mongodb+srv://Payton_Ikeda:mililanihs@cluster0.lrsp5.mongodb.net/hacc_sample_database?retryWrites=true&w=majority'
+            'host': config('DB_HOST')
         }
     }
 }
@@ -138,12 +139,12 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'polished-citron-331519-bucket'
+GS_BUCKET_NAME = config('GS_BUCKET_NAME')
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'MARSproject/polished-citron-331519-02afac49b6bb.json')
 )
 GS_DEFAULT_ACL = 'authenticatedRead'
 
-
+#print(config(DB_HOST))
 
