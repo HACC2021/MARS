@@ -245,3 +245,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+### Google Cloud Stuff ###
+polished-citron-331519-02afac49b6bb.json
