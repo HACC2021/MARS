@@ -17,19 +17,19 @@ grid_database = client["gridfs_database"]
 fs = gridfs.GridFS(grid_database)
 
 def home(request):
-    return render(request, 'homepage_final.html', )
+    return render(request, 'home.html', )
 
 
 def emergency(request):
-    return render(request, 'emergency_final.html')
+    return render(request, 'emergency.html')
 
 
 def login(request):
-    return render(request, 'login_final.html')
+    return render(request, 'registration/login_final.html')
 
 
 def sighting(request):
-    return render(request, 'sightingform_final.html')
+    return render(request, 'sightingform.html')
 
 
 def submitform(request):
@@ -67,7 +67,7 @@ def submitform(request):
             filename = fs.put(myfile, filename = "OS"+ datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
     except IndexError:
         print()'''
-    return render(request, 'thankyou_new.html')
+    return render(request, 'thankyou.html')
 
 
 def hmar(request):
@@ -77,7 +77,7 @@ def hmar(request):
     "all_data" : collection.find({})
     }
     #print(type(context["all_data"]))
-    return render(request, 'hmarlanding_new.html',context)
+    return render(request, 'hmarlanding.html',context)
 
 
 def specificreport(request,ID):
@@ -93,7 +93,7 @@ def specificreport(request,ID):
     # for i in context["ticket_ID"]:
         # print(i["Identification"])
     # print(context["ticket_ID"]["Identification"])
-    return render(request, 'viewspecificreport_new.html', context)
+    return render(request, 'viewspecificreport.html', context)
 
 
 def editform(request, ID):
@@ -101,6 +101,6 @@ def editform(request, ID):
         "report_data": collection.find({ "Ticket_Number": ID})
     }
 
-    return render(request, 'editform_new.html', context)
+    return render(request, 'editform.html', context)
 
 
