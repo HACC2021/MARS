@@ -1,0 +1,295 @@
+<!--11/4/21 scaled, boxes need scaling-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>HMAR Response Form</title>
+  </head>
+  <!-- this is the start of content -->
+
+  <!-- CSS only -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <img
+      src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+      style="vertical-align: middle;" width="60" height="60">
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- optional button you dont have to add this-->
+
+      <!--   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">home</a>
+            </li>
+          </ul>
+        </div>
+        -->
+
+      <!--end BUT DONT FORGET </nav>-->
+    </nav>
+
+    <!-- MAKE SURE TO INCLUDE THIS IF YOU ARE PUTTING THE ANIMAL IMAGES BELOW!!-->
+
+    <!--Background image options-->
+
+    <br />
+    <img
+      src="https://h-mar.org/wp-content/uploads/2019/04/MonkHeader-min-2.jpg"
+      class="imagesub"
+    />
+  </header>
+
+    <hr class="solid" />
+    <div class="d-flex justify-content-center">
+      <h2 style="font-size: 2w;">Sighting form</h2>
+    </div>
+    <hr class="solid" />
+
+    <form action="{% url 'submitform' %}">
+      <div class="form-group">
+        <label style="font-size: 2vw;" for="fname">First Name*:</label><br />
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="fname"
+          <br
+        /><br /><br />
+
+        <label style="font-size: 2vw;" for="lname">Last Name*:</label><br />
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="lname"
+          <br
+        /><br /><br />
+
+        <label style="font-size: 2vw;" for="pnumber">Phone Number</label>
+        <input required type="text" class="form-control" id="pnumber" /><br />
+        <br />
+      </div>
+      <hr class="solid" />
+
+      <label style="font-size: 2vw;" for="datetime"
+        >Date and time of sighting*:</label
+      ><br />
+      <input required style="font-size: 1.5vw;" type="datetime-local" />
+
+      <hr class="solid" />
+      <h2 style="font-size: 2vw;">Animal Characteristics</h2>
+      <div class="form-check form-check-inline">
+        <div class="checkbox form-check form-check-inline">
+          <div class="checkboxes">
+            <label
+              ><input type="checkbox" />
+              <span style="font-size: 2vw;">Bleached</span></label
+            >
+            <label
+              ><input type="checkbox" />
+              <span style="font-size: 2vw;">Bands</span></label
+            >
+            <label
+              ><input type="checkbox" />
+              <span style="font-size: 2vw;">Tags</span></label
+            >
+            <label
+              ><input type="checkbox" />
+              <span style="font-size: 2vw;">Scars</span></label
+            >
+          </div>
+        </div>
+      </div>
+      <hr class="solid" />
+      <h2 style="font-size: 2vw;">Island</h2>
+      <div class="radio">
+        <label style="font-size: 2vw;"
+          ><input type="radio" name="optradio" />Oahu</label
+        >
+        <br />
+        <label style="font-size: 2vw;"
+          ><input type="radio" name="optradio" />Molokai</label
+        >
+        <br />
+        <label style="font-size: 2vw;"
+          ><input type="radio" name="optradio" />Other</label
+        >
+      </div>
+
+      <hr class="solid" />
+      <h2 style="font-size: 2vw;">Animal Behavior</h2>
+      <div class="form-group">
+        <label style="font-size: 2vw;" for="comment"
+          >Interactions between the animal and people</label
+        >
+        <br />
+        <textarea class="form-control" rows="1" id="comment"></textarea>
+      </div>
+      <br />
+      <hr class="solid" />
+      <h2 style="font-size: 2vw;">People In Area</h2>
+      <div class="form-group">
+        <label style="font-size: 2vw;" for="humans">Number of people:</label>
+        <select
+          required
+          class="form-control"
+          style="font-size: 2vw;"
+          id="humans"
+        >
+          <option value="0-25" style="font-size: 2vw;">0-25</option>
+          <option value="26-50" style="font-size: 2vw;">26-50</option>
+          <option value="51-75" style="font-size: 2vw;">51-75</option>
+          <option value="76-100" style="font-size: 2vw;">76-100</option>
+          <option value="101-125" style="font-size: 2vw;">101-125</option>
+          <option value="126-150" style="font-size: 2vw;">126-150</option>
+          <option value="151-175" style="font-size: 2vw;">151-175</option>
+          <option value="176-200" style="font-size: 2vw;">176-200</option>
+        </select>
+      </div>
+      <link rel="stylesheet" type="text/css" href="./style.css" />
+      <script src="./index.js"></script>
+
+      <body>
+        <hr class="solid" />
+        <p style="font-size: 2vw;">
+          If possible, please share your location with us to expedite animal
+          protection.
+        </p>
+
+        <button style="font-size: 2vw;" onclick="getLocation()" class="button ">
+          Click Here
+        </button>
+
+        <p id="demo"></p>
+
+        <hr class="solid" />
+        <h2 style="font-size: 1w;">Submit a Photo</h2>
+        <input
+          type="file"
+          style="font-size: 2vw;"
+          id="myFile"
+          name="filename"
+        />
+
+        <hr class="solid" />
+        <input
+          required
+
+          style="font-size:2vw;"
+          type="submit"
+        />
+      </body>
+    </form>
+  </div>
+</html>
+
+<style>
+  html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  /* adjust typography defaults */
+  body {
+    margin: 1rem;
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #01497;
+  }
+
+
+  img {
+    padding: 0;
+    display: block;
+    margin: 0rem;
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .imagesub {
+    object-fit: fill;
+    margin: -1rem;
+    max-height: 100%;
+    max-width: 110%;
+  }
+  .checkboxes label {
+    display: inline-block;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  .checkboxes input {
+    vertical-align: middle;
+  }
+  .checkboxes label span {
+    vertical-align: middle;
+  }
+</style>
+
+<script>
+  var x = document.getElementById("demo");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML =
+      "Latitude: " +
+      position.coords.latitude +
+      "<br>Longitude: " +
+      position.coords.longitude;
+  }
+
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        x.innerHTML = "User denied the request for Geolocation.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        x.innerHTML = "Location information is unavailable.";
+        break;
+      case error.TIMEOUT:
+        x.innerHTML = "The request to get user location timed out.";
+        break;
+      case error.UNKNOWN_ERROR:
+        x.innerHTML = "An unknown error occurred.";
+        break;
+    }
+  }
+</script>

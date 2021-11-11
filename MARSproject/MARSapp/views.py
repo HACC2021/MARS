@@ -17,22 +17,23 @@ grid_database = client["gridfs_database"]
 fs = gridfs.GridFS(grid_database)
 
 def home(request):
-    return render(request, 'home.html', )
+    return render(request, 'homepage_final.html', )
 
 
 def emergency(request):
-    return render(request, 'emergency.html')
+    return render(request, 'emergency_final.html')
 
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'login_final.html')
 
 
 def sighting(request):
-    return render(request, 'sighting.html')
+    return render(request, 'sightingform_final.html')
 
 
 def submitform(request):
+    '''
     submit = (request.POST.get('submit'))
     submission_dict = {}
 
@@ -65,7 +66,7 @@ def submitform(request):
             fs = gridfs.GridFS(grid_database)
             filename = fs.put(myfile, filename = "OS"+ datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
     except IndexError:
-        print()
+        print()'''
     return render(request, 'thankyou_new.html')
 
 
@@ -101,3 +102,5 @@ def editform(request, ID):
     }
 
     return render(request, 'editform_new.html', context)
+
+
