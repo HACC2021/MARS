@@ -16,8 +16,9 @@ grid_database = client["gridfs_database"]
 
 fs = gridfs.GridFS(grid_database)
 
+#pre adan (current new2)
 def home(request):
-    return render(request, 'homepage_final.html', )
+    return render(request, 'homepage_final.html' )
 
 
 def emergency(request):
@@ -33,7 +34,7 @@ def sighting(request):
 
 
 def submitform(request):
-    '''
+
     submit = (request.POST.get('submit'))
     submission_dict = {}
 
@@ -47,6 +48,7 @@ def submitform(request):
     interaction = request.POST.get('interaction1')
     humans = request.POST.get('humans')
     coordinates = request.POST.get('coordinates')
+    print(datetime)
 
     try:
         submission_dict["Date"] = datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3]
@@ -60,13 +62,15 @@ def submitform(request):
         submission_dict["behavior"] = behavior
         submission_dict["interaction"] = interaction
         submission_dict["humans"] = humans
+        print(submission_dict)
         # upload.insert_one(submission_dict)
-        if request.method == "POST" and request.FILES['myfile']:
-            myfile = request.FILES['myfile']
-            fs = gridfs.GridFS(grid_database)
-            filename = fs.put(myfile, filename = "OS"+ datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
+        # if request.method == "POST" and request.FILES['myfile']:
+        #     myfile = request.FILES['myfile']
+        #     fs = gridfs.GridFS(grid_database)
+        #     filename = fs.put(myfile, filename = "OS"+ datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
     except IndexError:
-        print()'''
+        print("error")
+    #pre adan (current thankyou_new2)
     return render(request, 'thankyou_new.html')
 
 

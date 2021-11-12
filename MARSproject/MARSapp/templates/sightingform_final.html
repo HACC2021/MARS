@@ -72,14 +72,15 @@
     </div>
     <hr class="solid" />
 
-    <form action="{% url 'submitform' %}">
+    <form method="post" action="{% url 'submitform' %}" onsubmit="return validateForm()" enctype="multipart/form-data" name="myForm">
+        {% csrf_token %}
       <div class="form-group">
         <label style="font-size: 2vw;" for="fname">First Name*:</label><br />
         <input
           required
           type="text"
           class="form-control"
-          id="fname"
+          id="fname" name="fname"/>
           <br
         /><br /><br />
 
@@ -88,12 +89,12 @@
           required
           type="text"
           class="form-control"
-          id="lname"
+          id="lname" name="lname"/>
           <br
         /><br /><br />
 
         <label style="font-size: 2vw;" for="pnumber">Phone Number</label>
-        <input required type="text" class="form-control" id="pnumber" /><br />
+        <input required type="text" class="form-control" id="pnumber" name="pnumber" /><br />
         <br />
       </div>
       <hr class="solid" />
@@ -101,7 +102,7 @@
       <label style="font-size: 2vw;" for="datetime"
         >Date and time of sighting*:</label
       ><br />
-      <input required style="font-size: 1.5vw;" type="datetime-local" />
+      <input required style="font-size: 1.5vw;" type="datetime-local" id="datetime" name="datetime" />
 
       <hr class="solid" />
       <h2 style="font-size: 2vw;">Animal Characteristics</h2>
@@ -109,19 +110,19 @@
         <div class="checkbox form-check form-check-inline">
           <div class="checkboxes">
             <label
-              ><input type="checkbox" />
+              ><input type="checkbox" name="Animal Characteristics[]"/>
               <span style="font-size: 2vw;">Bleached</span></label
             >
             <label
-              ><input type="checkbox" />
+              ><input type="checkbox" name="Animal Characteristics[]"/>
               <span style="font-size: 2vw;">Bands</span></label
             >
             <label
-              ><input type="checkbox" />
+              ><input type="checkbox" name="Animal Characteristics[]"/>
               <span style="font-size: 2vw;">Tags</span></label
             >
             <label
-              ><input type="checkbox" />
+              ><input type="checkbox" name="Animal Characteristics[]"/>
               <span style="font-size: 2vw;">Scars</span></label
             >
           </div>
@@ -150,7 +151,7 @@
           >Interactions between the animal and people</label
         >
         <br />
-        <textarea class="form-control" rows="1" id="comment"></textarea>
+        <textarea class="form-control" rows="1" id="comment" name="behaivior"></textarea>
       </div>
       <br />
       <hr class="solid" />
@@ -161,7 +162,7 @@
           required
           class="form-control"
           style="font-size: 2vw;"
-          id="humans"
+          id="humans" name="humans"
         >
           <option value="0-25" style="font-size: 2vw;">0-25</option>
           <option value="26-50" style="font-size: 2vw;">26-50</option>
@@ -183,7 +184,7 @@
           protection.
         </p>
 
-        <button style="font-size: 2vw;" onclick="getLocation()" class="button ">
+        <button style="font-size: 2vw;" onclick="getLocation()" type=button class="button ">
           Click Here
         </button>
 
