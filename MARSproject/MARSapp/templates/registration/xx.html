@@ -42,7 +42,7 @@
 
   <body>
     <div class="container">
-      <img src="https://i.imgur.com/tKocTgd.png?1" style="width: 100%; max-height: 400px; object-fit: cover;" />
+      <img src="https://i.imgur.com/tKocTgd.png?1" style="width: 100%;" />
       <div class="centered">
         <h1 style="font-size: 6.5vw;">
           Login
@@ -93,46 +93,33 @@
         margin: 0;
         max-height: 100%;
         max-width: 100%;
-        object-fit: cover;
       }
     </style>
 
     <div>
-
-  <form method="POST" >
+      <form method="POST" >
     {% csrf_token %}
-    <center><table cellpadding="12" style = "text-align:center">
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-
-      </tr>
-      <tr>
-
-      </tr>
-      <td>{{ form.username }}</td>
-
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-
-      </tr>
-      <td>{{ form.password }}</td>
-    </table>
-      <pre>
-
-
-      </pre>
-            <input
+        <label
+          for="uname"
+          style="background-color:rgba(255,255,255, 100); border:0px;
+                  border-style:solid; border-color:#0; padding: 1em; margin: 0%;"
+          >Username:</label
+        ><br />
+        <input type="text" name="uname" required<br /><br /><br />
+        <label
+          for="pass"
+          style="background-color:rgba(255,255,255, 100); border:0px;
+                  border-style:solid; border-color:#0; padding: 1em; margin: 0%;"
+          >Password:</label
+        ><br />
+        <input type="password" name="pass" required <br /><br /><br />
+        <input
           class="btn btn-primary btn-lg"
           type="submit"
           name="submit"
           value="submit"
         />
-    <input type="hidden" name="next" value="/MARSapp/hmar/" />
-      {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-      </center>
-  </form>
+      </form>
     </div>
   </body>
 </html>

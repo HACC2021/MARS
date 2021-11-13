@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <img
         src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-        style="vertical-align: middle;" width="60" height="60">
+        style="vertical-align: middle;" width="50" height="50">
 
         <button
           class="navbar-toggler"
@@ -31,18 +31,14 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- optional button you dont have to add this-->
 
-        <!--   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">home</a>
+              <a class="nav-link" href="#">Home</a>
             </li>
           </ul>
         </div>
-        -->
-
-        <!--end BUT DONT FORGET </nav>-->
       </nav>
     </header>
 
@@ -54,29 +50,32 @@
         margin: 0;
         max-height: 100%;
         max-width: 100%;
-        vertical-align:center;
+        vertical-align: center;
+        object-fit: cover;
+      }
+
+      .btn-lg {
+        font-size: 4vw;
       }
     </style>
-    <!--Background image options-->
-    <img src="https://h-mar.org/wp-content/uploads/2019/05/Turtle2-min.jpg" />
-    <div class="p-3 mb-2 bg-info text-white">
+    <br /><br /><br />
+    <center>
+      <img
+        src="https://render.fineartamerica.com/images/rendered/medium/flat/round-beach-towel/images/artworkimages/medium/1/hawaiian-monk-seal-gerard-lacz.jpg"
+        width="40%"
+        height="40%"
+      />
       <div class="text-center">
-        <h1 style="font-size: 10vw;">Thank You!</h1>
-
-        <img
-          class="rounded mx-auto d-block img-fluid"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7zxbpCZmJHb3_QzALPSnsiKNDD2zEM6MrXw&usqp=CAU"
-          alt="Turtle"
-        />
+        <br /><br /><br />
+        <h1 style="font-size: 8vw;">Thank You!</h1>
+        <p style="font-size: 4vw">
+          Your form was submitted successfully.
+        </p>
         <br />
-        <a
-           lass="img-fluid"
-          class="btn btn-primary btn-lg"
-          href="https://bootstrapcreative.com/"
-          role="button"
-          >Home page</a
-        >
+        <button class="btn-primary btn-lg" onclick="window.location.href='/'">< Back to Home</button>
       </div>
-    </div>
+    </center>
+    <br />
+    <br />
   </header>
 </html>
