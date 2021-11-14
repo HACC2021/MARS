@@ -17,7 +17,11 @@ grid_database = client["gridfs_database"]
 fs = gridfs.GridFS(grid_database)
 
 def home(request):
-    return render(request, 'home.html', )
+    return render(request, 'homepage.html')
+
+
+def formselect(request):
+    return render(request, 'formselect.html')
 
 
 def emergency(request):
@@ -25,15 +29,22 @@ def emergency(request):
 
 
 def login(request):
-    return render(request, 'registration/login_final.html')
+    return render(request, 'registration/login.html')
 
 
-def sighting(request):
-    return render(request, 'sightingform.html')
+def sealreport(request):
+    return render(request, 'sealsightingform.html')
+
+
+def birdreport(request):
+    return render(request, 'birdsightingform.html')
+
+
+def turtlereport(request):
+    return render(request, 'turtlesightingform.html')
 
 
 def submitform(request):
-    '''
     submit = (request.POST.get('submit'))
     submission_dict = {}
 
@@ -61,13 +72,13 @@ def submitform(request):
         submission_dict["interaction"] = interaction
         submission_dict["humans"] = humans
         # upload.insert_one(submission_dict)
-        if request.method == "POST" and request.FILES['myfile']:
+        if request.method == "POST" and request.FILES.get('myfile'):
             myfile = request.FILES['myfile']
             fs = gridfs.GridFS(grid_database)
             filename = fs.put(myfile, filename = "OS"+ datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
     except IndexError:
-        print()'''
-    return render(request, 'thankyou.html')
+        print("Index Error")
+    return render(request, 'thankyoupage.html')
 
 
 def hmar(request):

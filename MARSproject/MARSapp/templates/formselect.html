@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- CSS Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
+    rel="stylesheet"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <img
+      src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+      style="vertical-align: middle;" width="60" height="60">
+
+<!--       <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <!-- optional button you dont have to add this-->
+
+      <!--   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">home</a>
+            </li>
+          </ul>
+        </div>
+        -->
+
+      <!--end BUT DONT FORGET </nav>-->
+    </nav>
+    <style>
+
+  button {
+    width: 150px;
+    height: auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+  }
+
+  button:hover {
+    margin: 0px;
+    border: 2px solid #d0cabf;
+}
+
+
+   .image-cropper {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+}
+
+.image-cropper__image {
+
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 100%;
+
+}
+
+  img {
+    padding: 0;
+    display: block;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-family: ubuntu;
+    padding: 0;
+    display: block;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+  </style>
+  </header>
+
+
+  <!--Header-->
+  <div class="container">
+    <img
+      src="https://h-mar.org/wp-content/uploads/2018/09/ContactHeader-min.jpg"
+      style="max-height: 400px; width: 900px; margin-left: auto; margin-right: auto; display: block;"
+    />
+    <div class="centered">
+      <h1 style="font-size: 30px; font-family: 'Roboto', sans-serif;">
+        Animal Selection
+      </h1>
+    </div>
+  </div>
+  <br>
+
+  <!--Start of buttons-->
+ <center>
+  <div class="text-center" style = "max-width: 700px;">
+    <!--Row and Column to make everything in line and evenly spaced-->
+      <!--Seal Button-->
+        <div class="row" >
+    <div class="col-sm">
+      <center>
+        <button
+          class="btn-lg "
+          type="submit"
+          onclick="window.location.href='/MARSapp/sealreport'"
+          name="seal"
+        >
+            <!--Seal Image-->
+          <center>
+           <div class="image-cropper">
+              <img class="image-cropper__image" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Hawaiian_monk_seal_at_French_Frigate_Shoals_05.jpg">
+            </div>
+
+              <!--Text on seal-->
+              <h1 style="font-size: 20px; font-family: 'Roboto', sans-serif;" >
+               Hawaiian Monk Seal
+              </h1>
+
+        </button>
+          </center>
+      </div>
+
+
+      <!--Bird button-->
+      <div class="col-sm">
+        <center>
+        <button
+          class="btn-lg "
+          type="submit"
+          onclick="window.location.href='/MARSapp/birdreport'"
+          name="bird"
+        >
+            <!--Bird image-->
+          <center>
+              <div class="image-cropper">
+              <img class="image-cropper__image" src="https://h-mar.org/wp-content/uploads/2019/06/BoninPetrel.jpg">
+            </div>
+            <!--Bird text-->
+            <center>
+              <h1 style="font-size: 20px; font-family: 'Roboto', sans-serif;">
+                Sea Bird
+              </h1>
+
+       </div>
+      </div>
+
+      <!--Turtle button-->
+      <div class="col">
+        <center>
+        <button
+          class="btn-lg "
+          onclick="window.location.href='/MARSapp/turtlereport'"
+          name="turtle"
+        >
+          <center>
+            <!--Turtle image-->
+             <div class="image-cropper">
+            <img
+                 class="image-cropper__image"
+              src="https://live.staticflickr.com/3674/11180225963_11c88b17aa_b.jpg"
+              style="max-height: 200px; width: 200px;"
+            />
+              </div>
+            <!--Turtle text-->
+              <h1 style="font-size: 20px; font-family: 'Roboto', sans-serif;">
+                Sea Turtle
+              </h1>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <br /><br>
+  <!--Footer-->
+  <footer>
+    <img
+         id ="footer"
+         style = "height: 300 px; width: 900px; margin-left: auto; margin-right: auto; display: block;"
+         src="https://h-mar.org/wp-content/uploads/2019/04/shutterstock_1079402375-min.jpg"
+    />
+  </footer>
+</html>
