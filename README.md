@@ -17,4 +17,5 @@ url should be https://mars-wv7zfnkmyq-uw.a.run.app/MARSapp/
 2. Click on Login button in the top right corner;
 url should be https://mars-wv7zfnkmyq-uw.a.run.app/accounts/login/?next=/MARSapp/ 
 3. Type in test login credentials as provided
-4. User is directed to HMAR Landing page
+4. User is directed to HMAR Landing page;
+url should be https://mars-wv7zfnkmyq-uw.a.run.app/MARSapp/hmar/
