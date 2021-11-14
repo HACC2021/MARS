@@ -178,8 +178,9 @@
         protection.
       </p>
 
-
-      <button onclick="getLocation()" style="font-size: 3.5vw;" class="button btn-primary btn-lg " type="button">Click Here</button>
+      <input type = "hidden" id = "Longitude" name = "Longitude"/>
+      <input type = "hidden" id = "Latitude" name = "Latitude"/>
+      <button onclick="getLocation(); getLocation2()" style="font-size: 3.5vw;" class="button btn-primary btn-lg " type="button">Click Here</button>
       </button>
 
       <p id="demo"></p>
@@ -276,43 +277,53 @@
 </style>
 
 
-    </style>
 
-    <script>
-      var x = document.getElementById("demo");
+ <script>
+  var x = document.getElementById("demo");
 
-      function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition, showError);
-        } else {
-          x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-      }
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(autoFill, showError);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  function getLocation2() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  function autoFill(position){
+    document.getElementById("Longitude").value = position.coords.longitude
+    document.getElementById("Latitude").value = position.coords.latitude
+  }
 
-      function showPosition(position) {
-        x.innerHTML =
-          "Latitude: " +
-          position.coords.latitude +
-          "<br>Longitude: " +
-          position.coords.longitude;
-      }
+  function showPosition(position) {
+    x.innerHTML =
+      "Latitude: " +
+      position.coords.latitude +
+      "<br>Longitude: " +
+      position.coords.longitude;
+  }
 
-      function showError(error) {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation.";
-            break;
-          case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable.";
-            break;
-          case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out.";
-            break;
-          case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred.";
-            break;
-        }
-      }
-    </script>
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        x.innerHTML = "User denied the request for Geolocation.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        x.innerHTML = "Location information is unavailable.";
+        break;
+      case error.TIMEOUT:
+        x.innerHTML = "The request to get user location timed out.";
+        break;
+      case error.UNKNOWN_ERROR:
+        x.innerHTML = "An unknown error occurred.";
+        break;
+    }
+  }
+</script>
   </form>
 </html>
