@@ -1,248 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Edit Form</title>
+  </head>
+  <body>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
-    <title>Edit Form</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <header>
-    <img
-    src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-    style="vertical-align: middle;" width="50" height="50">
-    <span style="vertical-align: middle;">Hawaii Marine Animal Response</span>
-  </header>
-  <body>
+
+    <container>
+      <header>
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
+        />
+        <!-- CSS only -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous"
+        />
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <img
+          src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+          style="vertical-align: middle;" width="50" height="50">
+          <a
+            class="navbar-brand"
+            href="HOMEPAGE"
+            style="vertical-align: middle;"
+            >Hawaii Marine Animal Response</a
+          >
+        </nav>
+        <hr class="solid" />
+      </header>
+    </container>
+    <style>
+      .hiddenRow {
+        padding: 0 !important;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      .row {
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+
+      .column {
+        width: 50%;
+        padding: 20px;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 16px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
     <form>
-      <h1>
-        Edit Form
-      </h1>
-      <style>
-        table,
-        th,
-        td {
-          border: 1px solid black;
-        }
-      </style>
-      <table>
-        <tr>
-          <td>Date</td>
-          <td>Time</td>
-          <td>Ticket Number</td>
-          <td>Hotline Operator Initials</td>
-          <td>Ticket type</td>
-          <td>Observer</td>
-        </tr>
-        <tr>
+      <div>
+        <table class="table table-bordered">
+          <th colspan="3">Edit Form</th>
+          <tr></tr>
           <td>
-            <input type="text" name="testing" value="" />
+            <table
+              class="table table-condensed table-striped"
+              align="center"
+              style="width: 90%"
+              style="display: block;"
+            >
+              <tr>
+                <th>Ticket Number</th>
+                <th>Date</th>
+              </tr>
+              <tr>
+                <td>#___</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>#___</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>#___</td>
+                <td></td>
+              </tr>
+            </table>
           </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-        </tr>
-      </table>
+          <tr
+            data-toggle="collapse"
+            data-target="#demo1"
+            class="accordion-toggle"
+          >
+            <td>
+              <center>
+                <b>Expand</b>
+              </center>
+              <button class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-eye-open"></span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="12" class="hiddenRow">
+              <div class="accordian-body collapse" id="demo1">
+                <table class="table table-striped">
+                  <thead>
+                    <tr class="info"></tr>
+                  </thead>
+                </table>
+                <table align="center">
+                  <tr>
+                    <td>Time</td>
 
-      <br /><br />
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Hotline Operator Initials</td>
 
-      <table>
-        <tr>
-          <td>Phone Number</td>
-          <td>Observer Initials</td>
-          <td>Observer Type</td>
-          <td>Sector</td>
-          <td>Sector</td>
-          <td>Location</td>
-        </tr>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ticket type</td>
 
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-      </table>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Observer</td>
 
-      <br /><br />
-      <table>
-        <tr>
-          <td>Location Notes</td>
-          <td>Seal Present?</td>
-          <td>Size</td>
-          <td>sex</td>
-          <td>beach position</td>
-          <td>how identified</td>
-        </tr>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Phone Number</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Observer Initials</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Observer Type</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sector</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sector</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Location</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Location Notes</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Seal Present?</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Size</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sex</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>beach position</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>how identified</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OD Temp(Bleach #)</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tag Number</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tag Side</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tag Color</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>ID Perm</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Molt</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Additional notes on ID</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>ID Verified By</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Seal Bleached Today</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Seal Logging</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mom and Pup Pair</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Interaction With Humans</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Disturbance to seal</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Survival Factor</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Handling/Take</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>SRA Set By</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td># of Volunteers Engaged</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Photos Sent?</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <td>Seal Depart Info Available?</td>
+                  <td>
+                    <input type="text" name="testing" value="" />
+                  </td>
 
-        <tr>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-        </tr>
-      </table>
+                  <tr>
+                    <td>Seal Departed Date</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Seal departed Time</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Responders Name</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Number of calls received</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Other notes</td>
+                    <td>
+                      <input type="text" name="testing" value="" />
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <tr></tr>
+            </td>
+          </tr>
+        </table>
 
-      <br /><br />
-
-      <table>
-        <td>OD Temp(Bleach #)</td>
-        <td>Tag Number</td>
-        <td>Tag Side</td>
-        <td>Tag Color</td>
-        <td>ID Perm</td>
-        <td>Molt</td>
-        <tr>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-        </tr>
-      </table>
-
-      <br /><br />
-      <table>
-        <td>Additional notes on ID</td>
-        <td>ID Verified By</td>
-        <td>Seal Bleached Today</td>
-        <td>Seal Logging</td>
-        <td>Mom and Pup Pair</td>
-        <td>Interaction With Humans</td>
-        <tr>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-        </tr>
-      </table>
-
-      <br /><br />
-      <table>
-        <tr>
-          <td>Disturbance to seal</td>
-          <td>Survival Factor</td>
-          <td>Handling/Take</td>
-          <td>SRA Set By</td>
-          <td># of Volunteers Engaged</td>
-          <td>Photos Sent?</td>
-        </tr>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-        <td>
-          <input type="text" name="testing" value="" />
-        </td>
-      </table>
-
-      <br /><br />
-      <table>
-        <td>Seal Depart Info Available?</td>
-        <td>Seal Departed Date</td>
-        <td>Seal departed Time</td>
-        <td>Responders Name</td>
-        <td>Number of calls received</td>
-        <td>Other notes</td>
-        <tr>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-          <td>
-            <input type="text" name="testing" value="" />
-          </td>
-        </tr>
-      </table>
-
-      <input type="submit" name="submit" value="submit" />
+        <center>
+          <input
+            class="btn btn-primary btn-lg"
+            type="submit"
+            name="submit"
+            value="submit"
+          />
+        </center>
+      </div>
     </form>
   </body>
 </html>

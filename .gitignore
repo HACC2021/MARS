@@ -216,9 +216,9 @@ celerybeat.pid
 # Environments
 .env
 .venv
-env/
+.env/
 venv/
-ENV/
+.env/
 env.bak/
 venv.bak/
 
@@ -247,4 +247,4 @@ dmypy.json
 cython_debug/
 
 ### Google Cloud Stuff ###
-polished-citron-331519-02afac49b6bb.json
+MARSproject/MARSproject/polished-citron-331519-02afac49b6bb.json
