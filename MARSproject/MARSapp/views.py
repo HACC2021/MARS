@@ -27,7 +27,7 @@ def login(request):
     return render(request, 'login.html')
 
 def sealreport(request):
-    return render(request, 'sealsightingform.html')
+    return render(request, 'sightingform_final2.html')
 
 def formselect(request):
     return render(request, 'formselect_updated.html')
@@ -221,3 +221,5 @@ def editform(request, ID):
 
     return render(request, 'editform.html', context)
 
+
+fs.delete(file_id= 46)
