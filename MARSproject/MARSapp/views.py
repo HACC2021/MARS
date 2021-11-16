@@ -18,25 +18,25 @@ grid_database = client["gridfs_database"]
 fs = gridfs.GridFS(grid_database)
 
 def home(request):
-    return render(request, 'homepage_final2.html', )
+    return render(request, 'homepage_navbar.html', )
 
 def emergency(request):
-    return render(request, 'emergency_final.html')
+    return render(request, 'emergency.html')
 
 def login(request):
     return render(request, 'login.html')
 
-def sealform(request):
-    return render(request, 'sightingform_final2.html')
+def sealreport(request):
+    return render(request, 'sealsightingform.html')
 
-def whichform(request):
-    return render(request, 'pickform.html')
+def formselect(request):
+    return render(request, 'formselect_updated.html')
 
-def turtleform(request):
-    return render(request, 'copysightingform_turtle.html')
+def turtlereport(request):
+    return render(request, 'turtlesightingform.html')
 
-def birdform(request):
-    return render(request, 'copysightingform_turtle.html')
+def birdreport(request):
+    return render(request, 'birdsightingform.html')
 
 def submitform(request):
     result = upload.find({}, {"_id": 1})
@@ -175,7 +175,7 @@ def submitform(request):
 
 
 
-    return render(request, 'thankyou_new.html')
+    return render(request, 'thankyoupage.html')
 
 
 
@@ -186,7 +186,7 @@ def hmar(request):
     "all_data" : collection.find({})
     }
     #print(type(context["all_data"]))
-    return render(request, 'hmarlanding_new.html',context)
+    return render(request, 'hmarlanding.html',context)
 
 
 
@@ -210,7 +210,7 @@ def specificreport(request,ID):
        "report_data" : collection.find({ "Ticket_Number": ID}),
        "grid_data" : y
     }
-    return render(request, 'viewspecificreport_new.html', context=context)
+    return render(request, 'viewspecificreport.html', context=context)
 
 
 
@@ -219,5 +219,5 @@ def editform(request, ID):
         "report_data": collection.find({ "Ticket_Number": ID})
     }
 
-    return render(request, 'editform_new.html', context)
+    return render(request, 'editform.html', context)
 
