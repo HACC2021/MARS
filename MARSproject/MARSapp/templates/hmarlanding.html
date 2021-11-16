@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>HMAR Landing</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
-    <title>HMAR Landing Page</title>
 
     <container>
       <header>
@@ -22,18 +23,67 @@
           crossorigin="anonymous"
         />
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <img
-          src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-          style="vertical-align: middle;" width="50" height="50">
-          <a
-            class="navbar-brand"
-            >Hawaii Marine Animal Response</a
-          >
-          <div style="position: fixed; right:5%; top:2%;">
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #FFFFFF;"
+      >
+        <header class="header" style="z-index: 1;">
+          <nav class="navbar">
+            <a href="{% url 'home' %}" class="nav-logo"
+              ><img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="50" height="50" style="margin-left: -30%;"></a
+            >
+          </nav>
+        </header>
+    </nav>
+
+
+
+
+    <style>
+         #login {
+            width: 100px;
+            height: 35px;
+            border-radius: 25px;
+            background-color: #0973ba;
+            border-color: #0973ba;
+            color: #FFFFFF;
+            border-style: solid;
+          }
+          #login:hover {
+            background-color: #FFFFFF;
+            color: #0973ba;
+          }
+
+          #logout {
+            width: 100px;
+            height: 35px;
+            border-radius: 25px;
+            background-color: #0973ba;
+            border-color: #0973ba;
+            color: #FFFFFF;
+            border-style: solid;
+          }
+          #logout:hover {
+            background-color: #FFFFFF;
+            color: #0973ba;
+          }
+     </style>
+
+        <div style="position: fixed; right:5%; top:2%;">
           {% if user.is_authenticated %}
-              <p>User: {{ user.get_username }}</p>
-              <a href="{% url 'logout'%}?next=/"><input type="submit" value="Logout" /></a>
+              <a href="{% url 'logout'%}?next=/"
+                 style="margin-right: 5%;">
+
+                <input
+            style="position: fixed; right:5%; top:2%"
+            type="submit"
+            style="font-weight: 400;"
+            value="LOGOUT"
+            id ="logout"
+            style="font-family: 'Roboto', sans-serif;"
+        /></a>
             {% else %}
 
         <a
@@ -48,22 +98,7 @@
             style="font-family: 'Roboto', sans-serif;"
         /></a>
 
-        <style>
-          #login {
-            width: 100px;
-            height: 35px;
-            border-radius: 25px;
-            background-color: #0973ba;
-            border-color: #0973ba;
-            color: #FFFFFF;
-            border-style: solid;
-          }
 
-          #login:hover {
-            background-color: #FFFFFF;
-            color: #0973ba;
-          }
-        </style>
 
             {% endif %}
             </div>
