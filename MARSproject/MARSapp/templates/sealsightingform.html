@@ -79,234 +79,100 @@
   </div>
   <br />
   <!--Start of form-->
-  <form
-    method="post"
-    onsubmit="return validateForm()"
-    action="{% url 'submitform' %}"
-    enctype="multipart/form-data"
-    name="myForm"
-  >
-         {% csrf_token %}
+   <form method="post" onsubmit="return validateForm()" action = "{% url 'sealsubmit' %}" enctype="multipart/form-data" name="myForm">
+      {% csrf_token %}
     <!--Contact information: Free write-->
-    <h2 style="font-size: 4vw; font-family: 'Roboto'; font-weight: 400;">
-      Contact Information
-    </h2>
+    <h2 style="font-size: 3.5vw;">Contact Information</h2>
     <div class="form-row">
       <div class="col">
-        <input
-          type="text"
-          name="fname"
-          class="form-control"
-          placeholder="First Name"
-          required
-          style="font-family: 'Roboto'"
-        />
+        <input type="text" name = "fname" class="form-control" placeholder="First Name" />
       </div>
       <div class="col">
-        <input
-          type="text"
-          name="lname"
-          class="form-control"
-          placeholder="Last Name"
-          required
-          style="font-family: 'Roboto'"
-        />
+        <input type="text" name = "lname" class="form-control" placeholder="Last Name" />
       </div>
       <div class="col">
-        <input
-          type="text"
-          name="pnumber"
-          class="form-control"
-          required
-          placeholder="Phone number"
-          style="font-family: 'Roboto'"
-        />
+        <input type="text" name = "pnumber" class="form-control" placeholder="Phone number" />
       </div>
     </div>
 
     <hr class="solid" />
 
-    <!--Date and time: Date and time-->
-    <h2
-      style="font-size: 4vw; font-family: 'Roboto'; font-weight: 400;"
-      for="datetime"
-    >
-      Date and time of sighting
-    </h2>
+  <!--Date and time: Date and time-->
+    <h2 style="font-size: 3.5vw;" for="datetime">Date and time of sighting</h2>
     <center>
-      <input
-        name="datetime"
-        required
-        style="font-size: 3vw; font-family:
-      'Roboto'"
-        type="datetime-local"
-      />
-    </center>
+    <input name = "datetime" required style="font-size: 3vw;" type="datetime-local" />
+</center>
     <hr class="solid" />
 
     <!--Animal Characteristics: Checkboxes-->
-    <h2 style="font-size: 4vw; font-family: 'Roboto'; font-weight: 400;">
-      Animal Characteristics
-    </h2>
-    <div class="checkbox form-check form-check-inline">
-      <div class="checkboxes">
-        <label
-          ><input
-            type="checkbox"
-            id="Bleached"
-            name="Animal Characteristics[]"
-            value="Bleached"
-          />
-          <span
-            style="font-size: 3.5vw; font-family: 'Roboto'; font-weight: 300;"
-            >Bleached</span
-          ></label
-        >
-        <label
-          ><input
-            type="checkbox"
-            id="Bands"
-            name="Animal Characteristics[]"
-            value="Bands"
-          />
-          <span
-            style="font-size: 3.5vw; font-family: 'Roboto'; font-weight: 300;"
-            >Bands</span
-          ></label
-        >
-        <label
-          ><input
-            type="checkbox"
-            id="Tags"
-            name="Animal Characteristics[]"
-            value="Tags"
-          />
-          <span
-            style="font-size: 3.5vw; font-family: 'Roboto'; font-weight: 300;"
-            >Tags</span
-          ></label
-        >
-        <label
-          ><input
-            type="checkbox"
-            id="Scars"
-            name="Animal Characteristics[]"
-            value="Scars"
-          />
-          <span
-            style="font-size: 3.5vw; font-family: 'Roboto'; font-weight: 300;"
-            >Scars</span
-          ></label
-        >
+    <h2 style="font-size: 3.5vw;">Animal Characteristics</h2>
+      <div class="checkbox form-check form-check-inline">
+        <div class="checkboxes">
+          <label
+            ><input type="checkbox" id="Bleached" name="Animal Characteristics[]" value = "Bleached"/>
+            <span style="font-size: 3.5vw;">Bleached</span></label
+          >
+          <label
+            ><input type="checkbox" id="Bands" name="Animal Characteristics[]" value = "Bands" />
+            <span style="font-size: 3.5vw;">Bands</span></label
+          >
+          <label
+            ><input type="checkbox" id="Tags" name="Animal Characteristics[]" value = "Tags"/>
+            <span style="font-size: 3.5vw;">Tags</span></label
+          >
+          <label
+            ><input type="checkbox" id="Scars"  name="Animal Characteristics[]" value = "Scars"/>
+            <span style="font-size: 3.5vw;">Scars</span></label
+          >
       </div>
     </div>
     <hr class="solid" />
 
-    <h2 style="font-size: 4vw; font-family: 'Roboto'; font-weight: 400;">
-      Island
-    </h2>
+    <h2 style="font-size: 3.5vw;">Island</h2>
 
-    <!--Island: Optradio-->
-    <div
-      id="islands"
-      class="radio form-check form-check-inline form-row radiostuff"
-    >
-      <label style="font-size: 3.5vw; font-family: 'Roboto'; font-weight: 300;">
-        <input
-          type="radio"
-          id="Oahu"
-          name="Island"
-          value="Oahu"
-          required
-          style="padding-left:15px;"
-        />Oahu</label
-      >
+      <!--Island: Optradio-->
+    <div id = "islands" class="radio form-check form-check-inline form-row radiostuff">
+      <label style="font-size: 3.5vw;">
+        <input type="radio" id="Oahu" name="Island" value="Oahu" style="padding-left:15px;" />Oahu</label>
 
-      <label
-        style="font-size: 3.5vw; font-family: 'Roboto'; margin-left: 10px; font-weight: 300;"
-      >
-        <input
-          type="radio"
-          id="Molokai"
-          name="Island"
-          value="Molokai"
-        />Molokai</label
-      >
+      <label style="font-size: 3.5vw;">
+        <input type="radio" id="Molokai" name="Island" value="Molokai" />Molokai</label>
 
-      <label
-        style="font-size: 3.5vw; font-family: 'Roboto'; margin-left: 10px; font-weight: 300;"
-      >
-        <input
-          type="radio"
-          id="Other"
-          required
-          name="Island"
-          value="Other"
-        />Other</label
+      <label style="font-size: 3.5vw;">
+        <input type="radio" id="Other" name="Island" value="Other" />Other</label
       >
     </div>
-
     <hr class="solid" />
 
     <!--Animal Behavior: Free write-->
-    <h2 style="font-size: 4vw; font-family: 'Roboto'; font-weight: 400;">
-      Animal Behavior
-    </h2>
+    <h2 style="font-size: 3.5vw;">Animal Behavior</h2>
     <div class="form-group">
-      <label
-        style="font-size: 2vw; font-family: 'Roboto'"
-        for="comment"
-      ></label>
+      <label style="font-size: 2vw;" for="comment"></label>
+      <br />
       <textarea
         class="form-control"
         rows="1"
         id="comment"
-        required
         placeholder="Interactions between the animal and people"
-        name="comment"
-      ></textarea>
+        name = "comment"
+        ></textarea>
     </div>
+    <br />
     <hr class="solid" />
 
     <!--People in the area: List of options-->
-    <h2 style="font-size: 4vw; font-family: 'Roboto'; font-weight: 400;">
-      Number of People In Area
-    </h2>
+    <h2 style="font-size: 3.5vw;">People In Area</h2>
     <div class="form-group">
-      <!--       <label style="font-size: 3vw; font-family: 'Roboto'" for="humans" -->
-      <!--         >Number of people:</label -->
-      <!--       > -->
-      <select
-        required
-        class="form-control"
-        style="font-size: 3vw; font-family: 'Roboto'"
-        id="humans"
-        name="humans"
-      >
-        <option value="0-25" style="font-size: 2vw; font-family: 'Roboto'"
-          >0-25</option
-        >
-        <option value="26-50" style="font-size: 2vw; font-family: 'Roboto'"
-          >26-50</option
-        >
-        <option value="51-75" style="font-size: 2vw; font-family: 'Roboto'"
-          >51-75</option
-        >
-        <option value="76-100" style="font-size: 2vw; font-family: 'Roboto'"
-          >76-100</option
-        >
-        <option value="101-125" style="font-size: 2vw; font-family: 'Roboto'"
-          >101-125</option
-        >
-        <option value="126-150" style="font-size: 2vw; font-family: 'Roboto'"
-          >126-150</option
-        >
-        <option value="151-175" style="font-size: 2vw; font-family: 'Roboto'"
-          >151-175</option
-        >
-        <option value="176-200" style="font-size: 2vw; font-family: 'Roboto'"
-          >176-200</option
-        >
+      <label style="font-size: 3vw;" for="humans">Number of people:</label>
+      <select required class="form-control" style="font-size: 3vw;" id="humans" name = "humans">
+        <option value="0-25" style="font-size: 2vw;">0-25</option>
+        <option value="26-50" style="font-size: 2vw;">26-50</option>
+        <option value="51-75" style="font-size: 2vw;">51-75</option>
+        <option value="76-100" style="font-size: 2vw;">76-100</option>
+        <option value="101-125" style="font-size: 2vw;">101-125</option>
+        <option value="126-150" style="font-size: 2vw;">126-150</option>
+        <option value="151-175" style="font-size: 2vw;">151-175</option>
+        <option value="176-200" style="font-size: 2vw;">176-200</option>
       </select>
     </div>
     <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -315,38 +181,24 @@
     <!--Location: Get location-->
     <body>
       <hr class="solid" />
-      <p style="font-size: 3.5vw; font-family: 'Roboto'; font-weight: 300;">
-        Location
+      <p style="font-size: 3.5vw;">
+        If possible, please share your location with us to expedite animal
+        protection.
       </p>
 
-      <button
-        onclick="getLocation()"
-        style="font-size: 2vw; font-family: 'Roboto'; border-radius:4px; border-width:0.5px"
-        type="button"
-      >
-        Click Here
+      <input type = "hidden" id = "Longitude" name = "Longitude"/>
+      <input type = "hidden" id = "Latitude" name = "Latitude"/>
+      <button onclick="getLocation(); getLocation2()" style="font-size: 3.5vw;" class="button btn-primary btn-lg " type="button">Click Here</button>
       </button>
 
       <p id="demo"></p>
 
       <hr class="solid" />
-      <h2 style="font-size: 4vw; font-family: 'Roboto'; font-weight: 400;">
-        Submit a Photo
-      </h2>
-      <input
-        type="file"
-        style="font-size: 2vw; font-family: 'Roboto';"
-        id="myFile"
-        name="myfile"
-      />
+      <h2 style="font-size: 4vw;">Submit a Photo</h2>
+      <input type="file" style="font-size: 2vw;" id="myFile" name="filename" />
 
       <hr class="solid" />
-      <input
-        class="btn-primary btn-lg"
-        required
-         style="font-size:3.5vw; background-color:#0973BA; font-family: 'Roboto'; border-width:3px; border-style: solid; border-color: #0973BA"
-        type="submit"
-      />
+      <input class="btn-primary btn-lg" required style="font-size:3.5vw;" type="submit" />
     </body>
 
     <style>
@@ -439,40 +291,51 @@
     </style>
 
     <script>
-      var x = document.getElementById("demo");
+  var x = document.getElementById("demo");
 
-      function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition, showError);
-        } else {
-          x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-      }
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(autoFill, showError);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  function getLocation2() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  function autoFill(position){
+    document.getElementById("Longitude").value = position.coords.longitude
+    document.getElementById("Latitude").value = position.coords.latitude
+  }
 
-      function showPosition(position) {
-        x.innerHTML =
-          "Latitude: " +
-          position.coords.latitude +
-          "<br>Longitude: " +
-          position.coords.longitude;
-      }
+  function showPosition(position) {
+    x.innerHTML =
+      "Latitude: " +
+      position.coords.latitude +
+      "<br>Longitude: " +
+      position.coords.longitude;
+  }
 
-      function showError(error) {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation.";
-            break;
-          case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable.";
-            break;
-          case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out.";
-            break;
-          case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred.";
-            break;
-        }
-      }
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        x.innerHTML = "User denied the request for Geolocation.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        x.innerHTML = "Location information is unavailable.";
+        break;
+      case error.TIMEOUT:
+        x.innerHTML = "The request to get user location timed out.";
+        break;
+      case error.UNKNOWN_ERROR:
+        x.innerHTML = "An unknown error occurred.";
+        break;
+    }
+  }
     </script>
   </form>
 </html>

@@ -82,7 +82,7 @@
   <form
     method="post"
     onsubmit="return validateForm()"
-    action="{% url 'submitform' %}"
+    action="{% url 'birdsubmit' %}"
     enctype="multipart/form-data"
     name="myForm"
   >
@@ -320,12 +320,9 @@
         Location
       </p>
 
-      <button
-        onclick="getLocation()"
-        style="font-size: 2vw; font-family: 'Roboto'; border-radius:4px; border-width:0.5px"
-        type="button"
-      >
-        Click Here
+      <input type = "hidden" id = "Longitude" name = "Longitude"/>
+      <input type = "hidden" id = "Latitude" name = "Latitude"/>
+      <button onclick="getLocation(); getLocation2()" style="font-size: 2vw; font-family: 'Roboto'; border-radius:4px; border-width:0.5px" type="button">Click Here</button>
       </button>
 
       <p id="demo"></p>
@@ -444,10 +441,21 @@
 
       function getLocation() {
         if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(autoFill, showError);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      function getLocation2() {
+        if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition, showError);
         } else {
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
+      }
+      function autoFill(position){
+        document.getElementById("Longitude").value = position.coords.longitude
+        document.getElementById("Latitude").value = position.coords.latitude
       }
 
       function showPosition(position) {
