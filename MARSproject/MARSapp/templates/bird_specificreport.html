@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>something</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            li {
+              list-style: circle;
+              z-index: 100;
+              font-size: 20px;
+            }
+
+            a {
+              text-decoration: none;
+
+            }
+
+        h1 {
+           font-size: 15px;
+              }
+
+            @media screen and (min-width: 700px) {
+        h1 {
+           font-size: 30px;
+              }
+        }
+                .header {
+            border-bottom: 1px solid #E2E8F0;
+          }
+
+          .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+          }
+
+          .hamburger {
+            display: none;
+          }
+
+          .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: #101010;
+          }
+
+          .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .nav-item {
+            margin-left: 3rem;
+          }
+
+          .nav-link {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #475569;
+          }
+
+          .nav-link:hover {
+            color: #482ff7;
+          }
+
+          .nav-logo {
+            font-size: 2.1rem;
+            font-weight: 500;
+            color: #482ff7;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .nav-menu {
+              position: fixed;
+              left: 100%;
+              top: 5.5rem;
+              flex-direction: column;
+              background-color: #fff;
+              width: 100%;
+              text-align: center;
+              transition: 0.3s;
+              box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+              left: 0;
+            }
+
+            .nav-item {
+              margin: 1rem 0;
+            }
+
+            .hamburger {
+              display: block;
+              cursor: pointer;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+              opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+              -webkit-transform: translateY(8px) rotate(45deg);
+              transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+              -webkit-transform: translateY(-8px) rotate(-45deg);
+              transform: translateY(-8px) rotate(-45deg);
+            }
+    </style>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .row {
+      }
+
+      .column {
+        width: 50%;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        text-align: center;
+        padding: 16px;
+      }
+      td {
+        text-align: center;
+        padding: 16px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      .button {
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin: 10px;
+      }
+      .big-btn {
+        width: 90px;
+        height: 40px;
+      }
+      p {
+        padding: 15px;
+      }
+      div {
+        text-align: center;
+      }
+      .unbreakable td {
+        width: 10% !important;
+        text-align: center !important;
+      }
+      .unbreakable tr {
+        page-break-inside: avoid !important;
+      }
+      #thead {
+        display: table;
+      }
+      #tbody {
+        display: table;
+        max-height: 300px;
+        overflow: auto;
+        table-layout: fixed;
+        width: 100%;
+        max-width: 100%;
+      }
+      #non-scroll-table {
+        width: 90%;
+        margin-left: 7.5%;
+      }
+    </style>
+    <head>
+      <div>
+        <header class="header">
+          <nav class="navbar" style="z-index: 100;">
+            <a href="#" class="nav-logo"
+              ><img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="60" height="60" style="margin-left: -10%;"></a
+            >
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="#" class="nav-link">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </nav>
+        </header>
+      </div>
+
+      <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const navLink = document.querySelectorAll(".nav-link");
+
+        hamburger.addEventListener("click", mobileMenu);
+        navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+        function mobileMenu() {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        }
+
+        function closeMenu() {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+        }
+      </script>
+      <head>
+        <b
+          ><p style="font-size: 120%;">
+            All Reports > Specific Report
+          </p></b
+        >
+      </head>
+      <body>
+        <div class="row">
+          <div class="column">
+            <div class="column; justify-content-center">
+              <img
+                src =  "data:image/png;base64,{{ grid_data }}"
+                alt = "No Image Available"
+                style="margin-top: 10%;"
+                width="200"
+                height="150"
+              />
+              <p class="solid">Key Info</p>
+            {% for i in report_data %}
+              <table id="non-scroll-table">
+                <tr style="text-align: center;">
+                  <th>Status</th>
+                  <th>{{ i.Status }}</th>
+                </tr>
+                <tr>
+                  <td>Date</td>
+                  <td>{{ i.Date }}</td>
+                </tr>
+                <tr>
+                  <td>Time</td>
+                  <td>{{ i.Time }}</td>
+                </tr>
+                <tr>
+                  <td>Location</td>
+                  <td>{{ i.Location }}</td>
+                </tr>
+                <tr>
+              </table>
+            </div>
+          </div>
+          <div class="column">
+
+            <label for="ticket">Ticket Number: {{ i.Ticket_Number }}</label>
+            <br />
+
+            <div
+              style="
+        display: block;
+        max-height: 492px;
+        overflow: auto;
+        table-layout: fixed;
+        width: 90%;
+        margin-left: 2.5%;"
+            >
+              <table style="display: table;">
+                <tbody id="tbody">
+                  <tr class="unbreakable">
+                                      <tr class="unbreakable">
+                    <td>Longitude</td>
+                    <td>{{ i.Longitude }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Latitude</td>
+                    <td>{{ i.Latitude }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Humans</td>
+                    <td>{{ i.humans }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Island</td>
+                    <td>{{ i.island }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Animal Characteristics</td>
+                    <td>{{ i.animal_characteristics }}</td>
+                  </tr>
+                    <td>Animal Type</td>
+                    <td>{{ i.Animal_Type }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Hotline Operator Initials</td>
+                    <td>{{ i.Hotline_Operator_Initials }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Ticket Type</td>
+                    <td>{{ i.Ticket_Type }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Observer</td>
+                    <td>{{ i.Observer }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Phone Number</td>
+                    <td>{{ i.Phone_number }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Observer Initials</td>
+                    <td>{{ i.Observer_Initials }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Observer Type</td>
+                    <td>{{ i.Observer_Type }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Sector</td>
+                    <td>{{ i.Sector }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Location Notes</td>
+                    <td>{{ i.Location_Notes }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Types of Birds</td>
+                    <td>{{ i.Types_of_Bird }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Responders Name</td>
+                    <td>{{ i.Responders_name }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Delivered</td>
+                    <td>{{ i.Delivered }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Where to</td>
+                    <td>{{ i.Where_to }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Outreach provided by operator</td>
+                    <td>{{ i.Outreach_provided_by_operator }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Number of Calls Received</td>
+                    <td>{{ i.Number_of_Calls_Received }}</td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Other Notes</td>
+                    <td>{{ i.Other_notes }}</td>
+                  </tr>
+
+
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <row class="justify-content-center">
+          <form action="/ticket.php">
+            <div class="centered" class="button big-btn">
+              <input type="submit" value="Submit" style="margin-top: 1%" />
+            </div>
+          </form>
+        </row>
+      </body>
+    </head>
+  </head>
+</html>

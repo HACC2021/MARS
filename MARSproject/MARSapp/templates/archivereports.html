@@ -127,9 +127,9 @@
       <button
         style="font-size: 14px; border-radius:8px; background-color:#FFFFFF; font-family: 'Roboto', sans-serif; font-weight: 400;"
         id="reportInputYes"
-        onclick="myfunction3()"
+        onclick="window.location.href='/MARSapp/hmar/'"
       >
-        Completed Reports
+        Active Reports
       </button>
       <button
         style="font-size: 14px; border-radius:8px; background-color:#FFFFFF; font-family: 'Roboto', sans-serif; font-weight: 400;"
@@ -166,7 +166,7 @@
           <th>Location</th>
           <th>Staff Completed Report?</th>
         </tr>
-        {% for i in all_data %}
+        {% for i in seal_archive %}
         <tr style="text-align: center;">
           <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
           <td>{{ i.Date }}</td>
@@ -179,7 +179,58 @@
         </tr>
         <tr>
           {% endfor %}
-
+        {% for i in bird_archive %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+        {% for i in seal_data %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+          {% for i in bird_data %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+          {% for i in turtle_data %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
         <script>
           function myFunction() {
             // Declare variables

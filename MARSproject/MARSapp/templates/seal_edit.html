@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>something</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            li {
+              list-style: circle;
+              z-index: 100;
+              font-size: 20px;
+            }
+
+            a {
+              text-decoration: none;
+
+            }
+
+        h1 {
+           font-size: 15px;
+              }
+
+            @media screen and (min-width: 700px) {
+        h1 {
+           font-size: 30px;
+              }
+        }
+                .header {
+            border-bottom: 1px solid #E2E8F0;
+          }
+
+          .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+          }
+
+          .hamburger {
+            display: none;
+          }
+
+          .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: #101010;
+          }
+
+          .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .nav-item {
+            margin-left: 3rem;
+          }
+
+          .nav-link {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #475569;
+          }
+
+          .nav-link:hover {
+            color: #482ff7;
+          }
+
+          .nav-logo {
+            font-size: 2.1rem;
+            font-weight: 500;
+            color: #482ff7;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .nav-menu {
+              position: fixed;
+              left: 100%;
+              top: 5.5rem;
+              flex-direction: column;
+              background-color: #fff;
+              width: 100%;
+              text-align: center;
+              transition: 0.3s;
+              box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+              left: 0;
+            }
+
+            .nav-item {
+              margin: 1rem 0;
+            }
+
+            .hamburger {
+              display: block;
+              cursor: pointer;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+              opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+              -webkit-transform: translateY(8px) rotate(45deg);
+              transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+              -webkit-transform: translateY(-8px) rotate(-45deg);
+              transform: translateY(-8px) rotate(-45deg);
+            }
+    </style>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .row {
+      }
+
+      .column {
+        width: 50%;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        text-align: center;
+        padding: 16px;
+      }
+      td {
+        text-align: center;
+        padding: 16px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      .button {
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin: 10px;
+      }
+      .big-btn {
+        width: 90px;
+        height: 40px;
+      }
+      p {
+        padding: 15px;
+      }
+      div {
+        text-align: center;
+      }
+      .unbreakable td {
+        width: 10% !important;
+        text-align: center !important;
+      }
+      .unbreakable tr {
+        page-break-inside: avoid !important;
+      }
+      #thead {
+        display: table;
+      }
+      #tbody {
+        display: table;
+        max-height: 300px;
+        overflow: auto;
+        table-layout: fixed;
+        width: 100%;
+        max-width: 100%;
+      }
+      #non-scroll-table {
+        width: 90%;
+        margin-left: 7.5%;
+      }
+    </style>
+    <head>
+      <div>
+        <header class="header">
+          <nav class="navbar" style="z-index: 100;">
+            <a href="#" class="nav-logo"
+              ><img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="60" height="60" style="margin-left: -10%;"></a
+            >
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="#" class="nav-link">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </nav>
+        </header>
+      </div>
+
+      <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const navLink = document.querySelectorAll(".nav-link");
+
+        hamburger.addEventListener("click", mobileMenu);
+        navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+        function mobileMenu() {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        }
+
+        function closeMenu() {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+        }
+      </script>
+      <head>
+        <b
+          ><p style="font-size: 120%;">
+            All Reports > Specific Report > Edit Report
+          </p></b
+        >
+      </head>
+      <body>
+        <div class="row">
+          <div class="column">
+            <div class="column; justify-content-center">
+              <img
+                src="https://files.worldwildlife.org/wwfcmsprod/images/HERO_harbor_seal_on_ice/hero_small/41yzw17euy_Harbor_Seal_on_Ice_close_0357_6_11_07.jpg"
+                style="margin-top: 10%;"
+                width="200"
+                height="150"
+              />
+              <p class="solid">Key Info</p>
+              {% for i in report_data %}
+
+              <table id="non-scroll-table">
+                <tr style="text-align: center;">
+                  <th>Status</th>
+                  <th><input type="text" style="width: 50%" name ="Status" value = "{{i.Status}}"/></th>
+                </tr>
+                <tr>
+                  <td>Date</td>
+                  <td><input type="text" style="width: 50%" name ="Date" value = "{{i.Date}}"/></td>
+                </tr>
+                <tr>
+                  <td>Time</td>
+                  <td><input type="text" style="width: 50%" name ="Time" value = "{{i.Time}}"/></td>
+                </tr>
+                <tr>
+                  <td>Location</td>
+                  <td><input type="text" style="width: 50%" name ="Location" value = "{{i.Location}}"/></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="column">
+            <label for="ticket">Ticket Number:</label>
+
+            <br />
+
+            <div
+              style="
+        display: block;
+        max-height: 418px;
+        overflow: auto;
+        table-layout: fixed;
+        width: 90%;
+        margin-left: 2.5%;"
+            >
+              <form method="post" action="{% url 'editredirect' %}">
+                {% csrf_token %}
+                <table style="display: table;">
+                  <tbody id="tbody">
+
+                <tr class="unbreakable">
+                    <td>Observer Contact Number</td>
+                    <td><input type="text" style="width: 50%" name ="Observer_Contact_Name" value = "{{ i.Observer_Contact_Number }}"/></td>
+                  </tr>
+                <tr class="unbreakable">
+                    <td>Island </td>
+                    <td><input type="text" style="width: 50%" name ="island" value = "{{ i.island }}"/></td>
+                  </tr>
+                <tr class="unbreakable">
+                    <td>Comments</td>
+                    <td><input type="text" style="width: 50%" name ="comment" value = "{{ i.comment }}"/></td>
+                  </tr>
+                <tr class="unbreakable">
+                    <td>Humans</td>
+                    <td><input type="text" style="width: 50%" name ="humans" value = "{{ i.humans }}"/></td>
+                  </tr>
+                <tr class="unbreakable">
+                    <td>Latitude</td>
+                    <td><input type="text" style="width: 50%" name ="Latitude" value = "{{ i.Latitude }}"/></td>
+                  </tr>
+                <tr class="unbreakable">
+                    <td>Longitude</td>
+                    <td><input type="text" style="width: 50%" name ="Longitude" value = "{{ i.Longitude }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Hotline Operator Initials</td>
+                    <td><input type="text" style="width: 50%" name ="Hotline_Operator_Initials" value = "{{ i.Hotline_Operator_Initials }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Ticket Type</td>
+                    <td><input type="text" style="width: 50%" name ="Ticket_Type" value = "{{ i.Ticket_Type }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Sighting</td>
+                    <td><input type="text" style="width: 50%" name ="Sighting" value = "{{ i.Sighting }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Survey</td>
+                    <td><input type="text" style="width: 50%" name ="Survey" value = "{{ i.Survey }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Observer</td>
+                    <td><input type="text" style="width: 50%" name ="Observer" value = "{{ i.Observer }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Observer Initials</td>
+                    <td><input type="text" style="width: 50%" name ="Observer_Initials" value = "{{ i.Observer_Initials }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Observer Type</td>
+                    <td><input type="text" style="width: 50%" name ="Observer_Type" value = "{{ i.Observer_Type }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Public</td>
+                    <td><input type="text" style="width: 50%" name ="Public" value = "{{ i.Public }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Volunteer/Staff</td>
+                    <td><input type="text" style="width: 50%" name ="Volunteer_slash_Staff" value = "{{ i.Volunteer_slash_Staff }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Agency</td>
+                    <td><input type="text" style="width: 50%" name ="Agency" value = "{{ i.Agency }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Sector</td>
+                    <td><input type="text" style="width: 50%" name ="Sector" value = "{{ i.Sector }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Location Notes</td>
+                    <td><input type="text" style="width: 50%" name ="Location_Notes" value = "{{ i.Location_Notes }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Present</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Present" value = "{{ i.Seal_Present }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Present Sighting</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Present_Sighting" value = "{{ i.Seal_Present_Sighting }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Present Survey</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Present_Survey" value = "{{ i.Seal_Present_Survey }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Size</td>
+                    <td><input type="text" style="width: 50%" name ="Size" value = "{{ i.Size }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Sex</td>
+                    <td><input type="text" style="width: 50%" name ="Sex" value = "{{ i.Sex }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Beach Position</td>
+                    <td><input type="text" style="width: 50%" name ="Beach_Position" value = "{{ i.Beach_Position }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>How Identified</td>
+                    <td><input type="text" style="width: 50%" name ="How_Identified" value = "{{ i.How_Identified }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Tag</td>
+                    <td><input type="text" style="width: 50%" name ="Tag" value = "{{ i.Tag }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Natural Bleach</td>
+                    <td><input type="text" style="width: 50%" name ="Natural_Bleach" value = "{{ i.Natural_Bleach }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Applied Bleach</td>
+                    <td><input type="text" style="width: 50%" name ="Applied_Bleach" value = "{{ i.Applied_Bleach }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Scars/Features</td>
+                    <td><input type="text" style="width: 50%" name ="Scars_slash_Features" value = "{{ i.Scars_slash_Features }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>ID Temp Bleach Number</td>
+                    <td><input type="text" style="width: 50%" name ="ID_Temp_Bleach_Number" value = "{{ i.ID_Temp_Bleach_Number }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Tag Number</td>
+                    <td><input type="text" style="width: 50%" name ="Tag_Number" value = "{{ i.Tag_Number }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Tag Side</td>
+                    <td><input type="text" style="width: 50%" name ="Tag_Side" value = "{{ i.Tag_Side }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Tag Color</td>
+                    <td><input type="text" style="width: 50%" name ="Tag_Color" value = "{{ i.Tag_Color }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>ID Perm</td>
+                    <td><input type="text" style="width: 50%" name ="ID_Perm" value = "{{ i.ID_Perm }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Molt</td>
+                    <td><input type="text" style="width: 50%" name ="Molt" value = "{{ i.Molt }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Additional Notes on ID</td>
+                    <td><input type="text" style="width: 50%" name ="Additional_Notes_on_ID" value = "{{ i.Additional_Notes_on_ID }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>ID Verified By</td>
+                    <td><input type="text" style="width: 50%" name ="ID_Verified_By" value = "{{ i.ID_Verified_By }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Bleached Today</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Bleached_Today" value = "{{ i.Seal_Bleached_Today }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Logging</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Logging" value = "{{ i.Seal_Logging }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Mom And Pup Pair</td>
+                    <td><input type="text" style="width: 50%" name ="Mom_and_Pup_Pair" value = "{{ i.Mom_and_Pup_Pair }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Interaction With Human</td>
+                    <td><input type="text" style="width: 50%" name ="Interaction_With_Human" value = "{{ i.Scars_slash_Features }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Disturbance to Seal</td>
+                    <td><input type="text" style="width: 50%" name ="Disturbance_to_Seal" value = "{{ i.Disturbance_to_Seal }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Survival Factor</td>
+                    <td><input type="text" style="width: 50%" name ="Survival_Factor" value = "{{ i.Survival_Factor }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Handling slash Take</td>
+                    <td><input type="text" style="width: 50%" name ="Handling_slash_Take" value = "{{ i.Handling_slash_Take }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>SRA Set Up</td>
+                    <td><input type="text" style="width: 50%" name ="SRA_Set_Up" value = "{{ i.SRA_Set_Up }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>SRA Type</td>
+                    <td><input type="text" style="width: 50%" name ="SRA_Type" value = "{{ i.SRA_Type }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>SRA Disturbance Type</td>
+                    <td><input type="text" style="width: 50%" name ="SRA_Disturbance_Type" value = "{{ i.SRA_Disturbance_Type }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>SRA Length</td>
+                    <td><input type="text" style="width: 50%" name ="SRA_Length" value = "{{ i.SRA_Length }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>SRA Size Width</td>
+                    <td><input type="text" style="width: 50%" name ="SRA_Size_Width" value = "{{ i.SRA_Size_Width }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Number of Seals in SRA</td>
+                    <td><input type="text" style="width: 50%" name ="Number_of_Seals_in_SRA" value = "{{ i.Number_of_Seals_in_SRA }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>SRA Set By</td>
+                    <td><input type="text" style="width: 50%" name ="SRA_Set_By" value = "{{ i.SRA_Set_By }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Number of Volunteers Engaged</td>
+                    <td><input type="text" style="width: 50%" name ="Number_of_Volunteers_Engaged" value = "{{ i.Number_of_Volunteers_Engaged }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Photos Sent</td>
+                    <td><input type="text" style="width: 50%" name ="Photos_Sent" value = "{{ i.Photos_Sent }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Depart Info Avail</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Depart_Info_Avail" value = "{{ i.Seal_Depart_Info_Avail }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Departed Date</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Departed_Date" value = "{{ i.Seal_Departed_Date }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Seal Departed Time</td>
+                    <td><input type="text" style="width: 50%" name ="Seal_Departed_Time" value = "{{ i.Seal_Departed_Time }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Number of Calls Received</td>
+                    <td><input type="text" style="width: 50%" name ="Number_of_Calls_Received" value = "{{ i.Number_of_Calls_Received }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Other Notes</td>
+                    <td><input type="text" style="width: 50%" name ="Other_Notes" value = "{{ i.Other_Notes }}"/></td>
+                  </tr>
+                  <tr class="unbreakable">
+                    <td>Animal Types</td>
+                    <td><input type="text" style="width: 50%" name ="Animal_Type" value = "{{ i.Animal_Types }}"/></td>
+                  </tr>
+                <tr class="unbreakable">
+                    <td>Ticket Number</td>
+                    <td><input type="text" style="width: 50%" name ="Ticket_Number" value = "{{ i.Ticket_Number }}"/></td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+<!--              </form>-->
+            </div>
+          </div>
+        </div>
+        <row class="justify-content-center">
+<!--          <form action="/ticket.php">-->
+            <div class="centered" class="button big-btn">
+              <input type="submit" value="Submit" style="margin-top: 1%" />
+            </div>
+          </form>
+          <button onclick></button>
+        </row>
+      </body>
+    </head>
+  </head>
+</html>
