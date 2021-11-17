@@ -13,13 +13,8 @@ urlpatterns = [
     path('birdreport/', views.birdreport, name='birdreport'),
     path('turtlereport/', views.turtlereport, name='turtlereport'),
 
-
     path('hmar/', views.hmar, name='hmar'),
-    # path('submitform/', views.submitform, name='submitform'),
-
-
-    # path('report/', views.report, name='report'),
-    # path('submitform/', views.submitform, name='submitform'),
+    path('hmar/archive/', views.archive, name='archive'),
 
     path('sealsubmit/', views.sealsubmit, name='sealsubmit'), #broken
     path('birdsubmit/', views.birdsubmit, name='birdsubmit'),# broken
