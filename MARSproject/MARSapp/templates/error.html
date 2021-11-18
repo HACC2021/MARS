@@ -1,82 +1,294 @@
 <!DOCTYPE html>
-<html lang="en" style="font-family: Ubuntu;">
-  <header>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <!-- CSS only -->
+<html lang="en">
+  <head>
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>HMAR Error</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <img
-        src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-        style="vertical-align: middle;" width="60" height="60">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- optional button you dont have to add this-->
-
-        <!--   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">home</a>
-            </li>
-          </ul>
-        </div>
-        -->
-
-        <!--end BUT DONT FORGET </nav>-->
-      </nav>
-    </header>
-
-    <!-- MAKE SURE TO INCLUDE THIS IF YOU ARE PUTTING THE ANIMAL IMAGES BELOW!!-->
     <style>
-      img {
-        padding: 0;
-        display: block;
-        margin: 0;
-        max-height: 100%;
-        max-width: 100%;
-        vertical-align:center;
+        html {
+        width: 100%;
+        height: 100%;
+        clip: auto;
+        position: absolute;
       }
-    </style>
-    <!--Background image options-->
-    <img src="https://h-mar.org/wp-content/uploads/2019/05/Turtle2-min.jpg" />
-    <div class="p-3 mb-2 bg-info text-white">
-      <div class="text-center">
-        <h1 style="font-size: 10vw;">Ooops you're on the wrong page!</h1>
+        .text-center {k;
+        text-alignautoe
+        margin-left: 20px;
+        margin-right: 20px;k;
+        max-width: 800px;
+      }
 
-        <img
-          class="rounded mx-auto d-block img-fluid"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7zxbpCZmJHb3_QzALPSnsiKNDD2zEM6MrXw&usqp=CAU"
-          alt="Turtle"
-        />
-        <br />
-        <a
-           lass="img-fluid"
-          class="btn btn-primary btn-lg"
-          href="https://bootstrapcreative.com/"
-          role="button"
-          >Home page</a
-        >
+           /*navbarthingz*/
+              @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+          html {
+                font-size: 62.5%;
+                font-family: "Roboto", sans-serif;
+              }
+
+              * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+              }
+
+              a {
+                text-decoration: none;
+                }
+
+              li {
+                list-style: circle;
+                z-index: 100;
+                font-size: 20px;
+              }
+
+              .header {
+                border-bottom: 1px solid #E2E8F0;
+              }
+
+              .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1.5rem;
+              }
+
+              .hamburger {
+                display: none;
+              }
+
+              .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                background-color: #101010;
+              }
+
+              .nav-menu {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .nav-item {
+                margin-left: 5rem;
+              }
+
+              .nav-link {
+                font-size: 1.6rem;
+                font-weight: 400;
+                color: #475569;
+              }
+
+              .nav-link:hover {
+                color: #482ff7;
+              }
+
+              .nav-logo {
+                font-size: 2.1rem;
+                font-weight: 500;
+                color: #482ff7;
+              }
+
+              @media only screen and (max-width: 768px) {
+                .nav-menu {
+                  position: fixed;
+                  left: 100%;
+                  top: 8rem;
+                  flex-direction: column;
+                  background-color: #fff;
+                  width: 100%;
+                  text-align: center;
+                  transition: 0.3s;
+                  box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                }
+
+                .nav-menu.active {
+                  left: 0;
+                }
+
+                .nav-item {
+                  margin: 2.5rem 0;
+                }
+
+                .hamburger {
+                  display: block;
+                  cursor: pointer;
+                }
+
+                .hamburger.active .bar:nth-child(2) {
+                  opacity: 0;
+                }
+
+                .hamburger.active .bar:nth-child(1) {
+                  -webkit-transform: translateY(8px) rotate(45deg);
+                  transform: translateY(8px) rotate(45deg);
+                }
+
+                .hamburger.active .bar:nth-child(3) {
+                  -webkit-transform: translateY(-8px) rotate(-45deg);
+                  transform: translateY(-8px) rotate(-45deg);
+                }
+              }
+                .text-center {k;
+              text-alignautoe
+              margin-left: 20px;
+              margin-right: 20px;k;
+              max-width: 800px;
+            }
+
+              /*center*/
+            .centered {
+              position: absolute;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            .container {
+              position: relative;
+              text-align: center;
+              color: white;
+              font-family: "Roboto";
+              padding: 0;
+              display: block;
+              margin: 0;
+              max-height: 100%;
+              max-width: 100%;
+            }
+            .post-page-head {
+      	  background: url("https://h-mar.org/wp-content/uploads/2018/09/ContactHeader-min.jpg") no-repeat top #101322;
+      	  background-size: cover;
+              background-position: center bottom;
+    background-position-x: center;
+    background-position-y: bottom;
+      	  padding: 40px 0;
+      	  min-height: 400px;
+          max-height: 10%;
+      }
+        .post-page-foot {
+      	  background: url("https://h-mar.org/wp-content/uploads/2018/09/ContactHeader-min.jpg") no-repeat top #101322;
+      	  background-size: 20vw;
+
+      	  padding: 40px 0;
+      	  min-height: 10px;
+      }
+         /*button stuff*/
+      .button1 {
+        width: 250px;
+        background-color: #0869A9;
+      }
+      .button2 {
+        width: 250px;
+        background-color: #a91808;
+      }
+
+    </style>
+  <div>
+        <header class="header">
+          <nav class="navbar" style="z-index: 100;">
+            <a href="{% url 'home' %}" class="nav-logo">
+              <img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="60" height="60" style="margin-left: -10%;">
+            </a>
+            <ul class="nav-menu" style="list-style-type: none;">
+              <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'formselect' %}" class="nav-link">Report Sighting</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'emergency' %}" class="nav-link">Report Emergency</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </nav>
+        </header>
+      </div>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+      const navLink = document.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", mobileMenu);
+      navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+      function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
+    </script>
+    <div
+      class="post-page-head row align-items-center m-0 px-3 px-md-5"
+      style='background-image: url("https://h-mar.org/wp-content/uploads/2018/12/AboutAnimalsHeader-min.jpg");'
+    >
+      <!--Header-->
+      <div class="container">
+        <div class="centered">
+          <h1
+            style="font-size: 40px; font-family: 'Roboto', sans-serif; font-weight: 400 "
+          >
+            Oops, you're on the wrong page!
+          </h1>
+
+          <h2
+            style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 30px"
+          >
+            Click below to go back
+          </h2>
+        </div>
       </div>
     </div>
-  </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="centered">
+       <button
+              class="btn-primary btn-lg button1"
+              onclick="window.location.href='/MARSapp/'"
+              style="font-size: 25px; font-family: 'Roboto', sans-serif; font-weight: 400"
+              type="submit"
+            >
+              Return Home
+            </button>
+  </head>
+  <body></body>
 </html>

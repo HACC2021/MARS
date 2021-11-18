@@ -1,83 +1,232 @@
+<!--11/4/21 scaled, boxes need scaling-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title>All Reports</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>HMAR Active Reports</title>
+
+    <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
       rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Style Elements Start -->
     <style>
-      table,
-      td {
-        border: 2px solid black;
-        font-family: "Roboto";
-        font-weight: 2500;
-        text-align: center;
-      }
-      tbody td {
-        padding: 28px;
-        font-weight: 350;
-      }
+      <style>
 
-      tbody tr:nth-child(odd) {
-        background-color: #c5cdd9;
-        color: #000000;
-      }
-      th {
-        border: 2px solid black;
-        font-family: "Roboto";
-        font-weight: 400;
-        text-align: center;
-      }
-      table {
-        border-collapse: collapse;
-        border: 1px solid gray;
-        margin-right: 20px;
-        margin-left: 20px;
-      }
-      .header {
-        border-bottom: 1px solid #E2E8F0;
+            * {
+              margin: 0;
+              padding: 0;
+            }
+
+            li {
+              list-style: circle;
+              z-index: 100;
+              font-size: 20px;
+            }
+
+            a {
+              text-decoration: none;
+
+            }
+
+        h1 {
+           font-size: 15px;
+              }
+
+            @media screen and (min-width: 700px) {
+        h1 {
+           font-size: 30px;
+              }
         }
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 1.5rem;
-        }
-      .nav-logo {
-        font-size: 2.1rem;
-        font-weight: 500;
-        color: #482ff7;
-        }
-      .container {
-        margin: 5px;
-      }
+                .header {
+            border-bottom: 1px solid #E2E8F0;
+          }
+
+          .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+
+          .hamburger {
+            display: none;
+          }
+
+          .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: #101010;
+          }
+
+          .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .nav-item {
+            margin-left: 3rem;
+          }
+
+          .nav-link {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #475569;
+          }
+
+          .nav-link:hover {
+            color: #482ff7;
+          }
+
+          .nav-logo {
+            font-size: 2.1rem;
+            font-weight: 500;
+            color: #482ff7;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .nav-menu {
+              position: fixed;
+              left: 100%;
+              top: 5.7rem;
+              flex-direction: column;
+              background-color: #fff;
+              width: 100%;
+              text-align: center;
+              transition: 0.3s;
+              box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+              left: 0;
+            }
+
+            .nav-item {
+              margin: 1rem 0;
+            }
+
+            .hamburger {
+              display: block;
+              cursor: pointer;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+              opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+              -webkit-transform: translateY(8px) rotate(45deg);
+              transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+              -webkit-transform: translateY(-8px) rotate(-45deg);
+              transform: translateY(-8px) rotate(-45deg);
+            }
 
     </style>
+  </head>
 
+  <!-- this is the start of content -->
 
   <div>
-  <header class="header">
-    <nav class="navbar" style="z-index: 100;">
-      <a href="{% url 'home' %}" class="nav-logo">
-        <img
-        src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-        width="60" height="60" style="margin-left: -10%;">
-      </a>
-    </nav>
-  </header>
+    <header class="header">
+      <nav class="navbar" style="z-index: 100;">
+        <a href="#" class="nav-logo"
+          ><img
+          src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+          width="60" height="60" style="margin-left: -10%;"></a
+        >
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/MARSapp/hmar/" class="nav-link">Active</a>
+          </li>
+          <li class="nav-item">
+            <a href="/MARSapp/hmar/archive" class="nav-link">Archive</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+  </div>
 
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLink = document.querySelectorAll(".nav-link");
+
+    hamburger.addEventListener("click", mobileMenu);
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function mobileMenu() {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+  <style>
+            table,
+            td {
+              border: 2px solid black;
+              font-family: "Roboto";
+              font-weight: 400;
+              text-align: center;
+            }
+            tbody td {
+              padding: 30px;
+            }
+
+            tbody tr:nth-child(odd) {
+              background-color: #c5cdd9;
+              color: #000000;
+            }
+            th {
+              border: 2px solid black;
+              font-family: "Roboto";
+              font-weight: 400;
+              text-align: center;
+              border: 1;
+            }
+            table {
+  margin:10px
+            }
+
+          </style>
 
     <h2 style="text-align: center;">
       <!--      <button style="font-size: 14px;" id="reportInput" onclick="myFunction()">-->
@@ -90,18 +239,18 @@
       >
         Archived Reports
       </button>
-      <button
-        style="font-size: 14px; border-radius:8px; background-color:#FFFFFF; font-family: 'Roboto', sans-serif; font-weight: 400;"
-      >
-        Export to Csv
-      </button>
-      <input
-        style="font-size: 16px; border-radius:8px; font-family: 'Roboto', sans-serif; font-weight: 400;"
-        type="text"
-        id="myInput"
-        onkeyup="myFunction()"
-        placeholder="Search by year (MM/DD/YYYY)"
-      />
+<!--      <button-->
+<!--        style="font-size: 14px; border-radius:8px; background-color:#FFFFFF; font-family: 'Roboto', sans-serif; font-weight: 400;"-->
+<!--      >-->
+<!--        Export to Csv-->
+<!--      </button>-->
+<!--      <input-->
+<!--        style="font-size: 16px; border-radius:8px; font-family: 'Roboto', sans-serif; font-weight: 400;"-->
+<!--        type="text"-->
+<!--        id="myInput"-->
+<!--        onkeyup="myFunction()"-->
+<!--        placeholder="Search by year (MM/DD/YYYY)"-->
+<!--      />-->
     </h2>
 
     <div >

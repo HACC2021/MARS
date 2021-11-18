@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" style="overflow: hidden;">
+<html lang="en" style="overflow-left: hidden; overflow-right: hidden; overflow-top: auto; overflow-bottom: auto;">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
-    <title>something</title>
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>HMAR Seal Report</title>
 
     <link
       rel="stylesheet"
@@ -218,20 +218,14 @@
               src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
               width="60" height="60" style="margin-left: -10%;"></a
             >
-            <ul class="nav-menu">
-              <li class="nav-item">
-                <a href="#" class="nav-link">Services</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Contact</a>
-              </li>
-            </ul>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/MARSapp/hmar/" class="nav-link">Active</a>
+          </li>
+          <li class="nav-item">
+            <a href="/MARSapp/hmar/archive" class="nav-link">Archive</a>
+          </li>
+        </ul>
             <div class="hamburger">
               <span class="bar"></span>
               <span class="bar"></span>
@@ -564,7 +558,7 @@
         <row class="justify-content-center">
           <form action="{% url 'editform' ID=i.Ticket_Number %}">
             <div class="centered" class="button big-btn">
-              <input type="submit" value="Submit" style="margin-top: 1%" />
+              <input type="submit" value="Edit Report" style="margin-top: 1%" />
             </div>
           </form>
           {% endfor %}

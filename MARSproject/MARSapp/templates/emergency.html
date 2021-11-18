@@ -1,130 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>Emergency Reporting</title>
 
-    <title>Emergency Contact</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <!-- Add Style Elements Here -->
+    <style>
+      /*navbarthingz*/
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+      html {
+        font-size: 62.5%;
+        font-family: "Roboto", sans-serif;
+      }
 
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      li {
+        list-style: circle;
+        z-index: 100;
+        font-size: 20px;
+      }
+
+      .header {
+        border-bottom: 1px solid #E2E8F0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: #101010;
+      }
+
+      .nav-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-item {
+        margin-left: 5rem;
+      }
+
+      .nav-link {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #475569;
+      }
+
+      .nav-link:hover {
+        color: #482ff7;
+      }
+
+      .nav-logo {
+        font-size: 2.1rem;
+        font-weight: 500;
+        color: #482ff7;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          left: 100%;
+          top: 8rem;
+          flex-direction: column;
+          background-color: #fff;
+          width: 100%;
+          text-align: center;
+          transition: 0.3s;
+          box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-menu.active {
+          left: 0;
+        }
+
+        .nav-item {
+          margin: 2.5rem 0;
+        }
+
+        .hamburger {
+          display: block;
+          cursor: pointer;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+          -webkit-transform: translateY(8px) rotate(45deg);
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+          -webkit-transform: translateY(-8px) rotate(-45deg);
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    </style>
+
+    <style>
+          /*image*/
+            img {
+              padding: 0;
+              display: block;
+              margin: 0;
+              max-height: 100%;
+              max-width: 100%;
+              object-fit: cover;
+            }
+
+
+          /*container*/
+
+            .container {
+              position: relative;
+              text-align: center;
+              color: white;
+              font-family: "Roboto";
+              padding: 0;
+              display: block;
+              margin: 0;
+              max-height: 100%;
+              max-width: 100%;
+            }
+
+            html {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+            }
+
+                /*center*/
+
+            .centered {
+              position: absolute;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            /*to center the text*/
+          .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid white;
+        padding: 10px;
+      }
+
+
+      /*image-scaling*/
+       .post-page-head {
+      	  background: url("https://h-mar.org/wp-content/uploads/2018/09/ContactHeader-min.jpg") no-repeat top #101322;
+      	  background-size: cover;
+         background-position: center bottom;
+    background-position-x: center;
+    background-position-y: bottom;
+      	  padding: 40px 0;
+      	  min-height: 400px;
+          max-height: 600px;
+      }
+    .post-page-footer {
+      	  background: url("https://h-mar.org/wp-content/uploads/2018/09/ContactHeader-min.jpg") no-repeat top #101322;
+      	  background-size: cover;
+          background-position: center bottom;
+          background-position-x: center;
+          background-position-y: bottom;
+      	  padding: 40px 0;
+      	  min-height: 400px;
+          max-height: 400px;
+      }
+
+    </style>
   </head>
-  <!-- CSS only -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-    crossorigin="anonymous"
-  />
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <img
-      src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-      style="vertical-align: middle;" width="60" height="60">
 
-      <!-- Hamburger Header
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- optional button you dont have to add this-->
+  <div>
+        <header class="header">
+          <nav class="navbar" style="z-index: 100;">
+            <a href="/MARSapp/" class="nav-logo">
+              <img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="60" height="60" style="margin-left: -10%;">
+            </a>
+            <ul class="nav-menu" style="list-style-type: none;">
+              <li class="nav-item">
+                <a href="/MARSapp/" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/MARSapp/formselect/" class="nav-link">Report Sighting</a>
+              </li>
+              <li class="nav-item">
+                <a href="/MARSapp/emergency/" class="nav-link">Report Emergency</a>
+              </li>
+              <li class="nav-item">
+                <a href="/accounts/login/" class="nav-link">Login</a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </nav>
+        </header>
+      </div>
 
-      <!--   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">home</a>
-            </li>
-          </ul>
-        </div>
-        -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLink = document.querySelectorAll(".nav-link");
 
-      <!--end BUT DONT FORGET </nav>-->
-    </nav>
-  </header>
-  <style>
-    img {
-      padding: 0;
-      display: block;
-      margin: 0;
-      max-height: 100%;
-      max-width: 100%;
+    hamburger.addEventListener("click", mobileMenu);
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function mobileMenu() {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
     }
-    .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+
+    function closeMenu() {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
     }
-    .container {
-      position: relative;
-      text-align: center;
-      color: #FFFFFF;
-      font-family: ubuntu;
-      padding: 0;
-      display: block;
-      margin: 0;
-      max-height: 100%;
-      max-width: 100%;
-    }
-  </style>
+  </script>
 
 <!-- Header Start -->
+ <div class="post-page-head row align-items-center m-0 px-3 px-md-5" style='background-image: url("https://h-mar.org/wp-content/uploads/2018/12/AboutAnimalsHeader-min.jpg");'>
   <div class="container">
     <img
-      src="https://h-mar.org/wp-content/uploads/2018/12/AboutAnimalsHeader-min.jpg"
+      src=""
       style="max-height: 400px; width: 900px; margin-left: auto; margin-right: auto; display: block;"
     />
     <div class="centered">
-      <h1 style="font-size: 30px; font-family: 'Roboto', sans-serif" >
+      <h1 style="font-size: 40px; font-family: 'Roboto', sans-serif;font-weight: 400" >
         Emergency Contact
       </h1>
     </div>
   </div>
+ </div>
 
   <!-- Header End -->
 
   <br />
   <body>
     <!-- this is the start of content -->
-
-    <div class="col-md-12 text-center">
+ <center>
       <p
-        style="background-color:#ffffff; border:2px; border-style:solid; border-color:#ffffff; padding: 1em; color:#3;"
+        style="font-size: 20px; background-color:#ffffff; border:2px; border-style:solid; border-color:#ffffff; padding: 1em; color:#3;font-weight: 300"
       >
         If an animal is in distress or needs any immediate assistance please
         call the number below.
       </p>
-      <div class="text-center">
+
         <p
-          style="background-color:#ffffff; border:2px; border-style:solid; border-color:#ffffff; padding: 1em; "
+          style="font-size: 20px; background-color:#ffffff; border:2px; border-style:solid; border-color:#ffffff; padding: 1em;font-weight: 300 "
         >
           <a
             href="tel:18882569840"
             class="btn btn-center-align btn-danger btn-lg"
             role="button"
+            style="font-size: 20px;"
             >888-256-9840
           </a>
         </p>
-      </div>
-    </div>
+    </div></center>
+  </div>
   </body>
   <br />
   <footer>
-    <!--Created by: <span class="font-italic font-weight-bold">MARS</span>-->
-    <img
-      src="https://h-mar.org/wp-content/uploads/2019/04/shutterstock_1079402375-min.jpg"
-      style="max-height: 400px; width: 900px; margin-left: auto; margin-right: auto; display: block;"
-    />
+    <div class="post-page-head row align-items-center m-0 px-3 px-md-5" style="background-image: url(&quot;https://h-mar.org/wp-content/uploads/2019/04/shutterstock_1079402375-min.jpg&quot;);max-height: 100px;"></div>
   </footer>
 </html>

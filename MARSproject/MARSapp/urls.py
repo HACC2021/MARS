@@ -20,9 +20,10 @@ urlpatterns = [
     path('birdsubmit/', views.birdsubmit, name='birdsubmit'),
     path('turtlesubmit/', views.turtlesubmit, name='turtlesubmit'),
 
-    path('hmar/<str:ID>', views.specificreport, name='specific-report'),
+    path('hmar/<str:ID>/', views.specificreport, name='exportdata'),
+    path('hmar/<str:ID>', views.specificreport, name='specificreport'),
     path('hmar/<str:ID>/editform/', views.editform, name='editform'),
 
     #create edit thank you page that has button to redirect to home
-    path('hmar/', views.editredirect, name='editredirect'),
+    path('hmar/<str:ID>/editform/editsubmit/', views.editredirect, name='editredirect'),
 ]

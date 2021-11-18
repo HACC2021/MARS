@@ -31,7 +31,7 @@ turtleFS = gridfs.GridFS(turtleimages)
 
 
 def home(request):
-    return render(request, 'homepage.html', )
+    return render(request, 'homepage_final.html', )
 
 
 def emergency(request):
@@ -43,7 +43,7 @@ def login(request):
 
 
 def formselect(request):
-    return render(request, 'formselect.html')
+    return render(request, 'animalselect.html')
 
 
 def sealreport(request):
@@ -569,8 +569,21 @@ def specificreport(request,ID):
         "seal_archive": seal_collection.find({}),
         "bird_archive": bird_collection.find({}),
         }
-        # print(type(context["all_data"]))
         return render(request, 'archivereports.html', context)
+
+
+    if ID == "exportdata":
+        context = {
+        "seal_data" : sealupload.find({}),
+        "bird_data" : birdupload.find({}),
+        "turtle_data": turtleupload.find({}),
+        "seal_archive": seal_collection.find({}),
+        "bird_archive": bird_collection.find({}),
+        }
+        print("exportdata")
+        print(context["seal_archive"])
+        return render(request, 'archivescript.html', context)
+
 
     else:
         type = ID[0]+ID[1]
@@ -841,13 +854,41 @@ def editredirect(request, ID):
             break
         if i["Ticket_Number"] != editdict["Ticket_Number"]:
             db = seal_collection
-    print(editdict)
 
 
+    # print(editdict)
+    test = db.find({"Ticket_Number": editdict["Ticket_Number"]})
+    for i in test:
+        print(i)
+
+    # db.update({"Ticket_Number": editdict["Ticket_Number"]}, {"$set": {"testfield": "test"}})
+
+    for i in editdict:
+        print(i)
+        db.update({"Ticket_Number": editdict["Ticket_Number"]}, {"$set":{i:editdict[i]}} )
+        # print(editdict[i])
+        db.find
+
+    return render(request, 'editsubmit.html',context)
+
+
+#disabled for js only solution
+# def csv_list_report(request):
+#     print("export")
+#     response = HttpResponse(mimetype='text/csv')
+#     response['Content-Disposition'] = 'attachment; filename="reports.csv"'
+#     writer = csv.writer(response)
+#     writer.writerow(['First row', 'Foo', 'Bar', 'Baz'])
+#     writer.writerow(['Second row', 'A', 'B', 'C', '"Testing"', "Here's a quote"])
 #
-    # for i in editdict:
-    #     print(i)
-    #     db.update({"Ticket_Number": editdict["Ticket_Number"]}, {"$set":{i:editdict[i]}})
-
-    return render(request, 'activereports.html',context)
-
+#     for i in sealupload.find({}):
+#         writer.writerow(i)
+#     for i in birdupload.find({}):
+#         writer.writerow(i)
+#     for i in turtleupload.find({}):
+#         writer.writerow(i)
+#     for i in seal_collection.find({}):
+#         writer.writerow(i)
+#     for i in bird_collection.find({}):
+#         writer.writerow(i)
+#     return response
