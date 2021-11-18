@@ -24,13 +24,16 @@
     crossorigin="anonymous"
   />
 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <header>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white"
+      style="margin: 0;"
+    >
       <img
       src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
       style="vertical-align: middle;" width="60" height="60">
 
-      <button
+      <!--       <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -40,7 +43,7 @@
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       <!-- optional button you dont have to add this-->
 
       <!--   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -62,16 +65,16 @@
 
   <!--Background seal and header-->
   <div class="container">
-    <img src="https://i.imgur.com/vdHqEys.png" style="width:100%;" />
+    <img src="https://i.imgur.com/vdHqEys.png" style="width:100%;" style="max-height: 400 px"/>
     <div class="centered">
-      <h1 style="font-size: 6.5vw;">
-        Sighting Form
+      <h1 style="font-size: 6.5vw; font-family: 'Roboto'; font-weight:300">
+        Seal Sighting Form
       </h1>
     </div>
   </div>
   <br />
   <!--Start of form-->
-  <form method="post" onsubmit="return validateForm()" action = "{% url 'submitform' %}" enctype="multipart/form-data" name="myForm">
+  <form method="post" onsubmit="return validateForm()" action = "{% url '/' %}" enctype="multipart/form-data" name="myForm">
       {% csrf_token %}
     <!--Contact information: Free write-->
     <h2 style="font-size: 3.5vw;">Contact Information</h2>

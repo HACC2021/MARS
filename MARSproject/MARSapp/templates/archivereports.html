@@ -1,0 +1,455 @@
+<!--11/4/21 scaled, boxes need scaling-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>HMAR Archived Reports</title>
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+<!--    <script>-->
+<!--&lt;!&ndash;    //create CSV file data in an array&ndash;&gt;-->
+<!--    {% for i in seal_data %}-->
+<!--    var csvFileData = [-->
+<!--    [{{ i.Ticket_Number }}, {{ i.Date }}, {{ i.Time }}, {{ i.Observer_Contact_Number }}, {{ i.Observer_Type }},{{ i.Location }}-->
+<!--    ];-->
+<!--    {% endfor %}-->
+<!--&lt;!&ndash;    //create a user-defined function to download CSV file&ndash;&gt;-->
+<!--    function download_csv_file() {-->
+
+<!--&lt;!&ndash;        //define the heading for each row of the data&ndash;&gt;-->
+<!--        var csv = 'Ticket Number, Date, Time, Observer Contact Number, Observer Type, Location\n';-->
+
+<!--&lt;!&ndash;        //merge the data with CSV&ndash;&gt;-->
+<!--        csvFileData.forEach(function(row) {-->
+<!--                csv += row.join(',');-->
+<!--                csv += "\n";-->
+<!--        });-->
+
+<!--&lt;!&ndash;        //display the created CSV data on the web browser&ndash;&gt;-->
+<!--        document.write(csv);-->
+
+
+<!--        var hiddenElement = document.createElement('a');-->
+<!--        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);-->
+<!--        hiddenElement.target = '_blank';-->
+
+<!--&lt;!&ndash;        //provide the name for the CSV file to be downloaded&ndash;&gt;-->
+<!--        hiddenElement.download = 'HMAR Sites.csv';-->
+<!--        hiddenElement.click();-->
+<!--    }-->
+<!--    </script>-->
+<!--    <script>-->
+<!--      function exportTableToCSV(filename) {-->
+<!--        var csv = [];-->
+<!--        var rows = document.querySelectorAll("table tr");-->
+
+<!--        for (var i = 0; i < rows.length; i++) {-->
+<!--          var row = [],-->
+<!--            cols = rows[i].querySelectorAll("td, th");-->
+
+<!--          for (var j = 0; j < cols.length; j++) row.push(cols[j].innerText);-->
+
+<!--          csv.push(row.join(","));-->
+<!--        }-->
+
+<!--        // Download CSV file-->
+<!--        downloadCSV(csv.join("\n"), filename);-->
+<!--      }-->
+<!--    </script>-->
+<!--    <script>-->
+<!--      function downloadCSV(csv, filename) {-->
+<!--        var csvFile;-->
+<!--        var downloadLink;-->
+
+<!--        // CSV file-->
+<!--        csvFile = new Blob([csv], { type: "text/csv" });-->
+
+<!--        // Download link-->
+<!--        downloadLink = document.createElement("a");-->
+
+<!--        // File name-->
+<!--        downloadLink.download = filename;-->
+
+<!--        // Create a link to the file-->
+<!--        downloadLink.href = window.URL.createObjectURL(csvFile);-->
+
+<!--        // Hide download link-->
+<!--        downloadLink.style.display = "none";-->
+
+<!--        // Add the link to DOM-->
+<!--        document.body.appendChild(downloadLink);-->
+
+<!--        // Click download link-->
+<!--        downloadLink.click();-->
+<!--      }-->
+<!--    </script>-->
+
+    <style>
+      <style>
+
+            * {
+              margin: 0;
+              padding: 0;
+            }
+
+            li {
+              list-style: circle;
+              z-index: 100;
+              font-size: 20px;
+            }
+
+            a {
+              text-decoration: none;
+
+            }
+
+        h1 {
+           font-size: 15px;
+              }
+
+            @media screen and (min-width: 700px) {
+        h1 {
+           font-size: 30px;
+              }
+        }
+                .header {
+            border-bottom: 1px solid #E2E8F0;
+          }
+
+          .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+
+          .hamburger {
+            display: none;
+          }
+
+          .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: #101010;
+          }
+
+          .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .nav-item {
+            margin-left: 3rem;
+          }
+
+          .nav-link {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #475569;
+          }
+
+          .nav-link:hover {
+            color: #482ff7;
+          }
+
+          .nav-logo {
+            font-size: 2.1rem;
+            font-weight: 500;
+            color: #482ff7;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .nav-menu {
+              position: fixed;
+              left: 100%;
+              top: 5.7rem;
+              flex-direction: column;
+              background-color: #fff;
+              width: 100%;
+              text-align: center;
+              transition: 0.3s;
+              box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+              left: 0;
+            }
+
+            .nav-item {
+              margin: 1rem 0;
+            }
+
+            .hamburger {
+              display: block;
+              cursor: pointer;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+              opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+              -webkit-transform: translateY(8px) rotate(45deg);
+              transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+              -webkit-transform: translateY(-8px) rotate(-45deg);
+              transform: translateY(-8px) rotate(-45deg);
+            }
+
+    </style>
+  </head>
+
+  <!-- this is the start of content -->
+
+  <div>
+    <header class="header">
+      <nav class="navbar" style="z-index: 100;">
+        <a href="#" class="nav-logo"
+          ><img
+          src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+          width="60" height="60" style="margin-left: -10%;"></a
+        >
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/MARSapp/hmar/" class="nav-link">Active</a>
+          </li>
+          <li class="nav-item">
+            <a href="/MARSapp/hmar/archive" class="nav-link">Archive</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLink = document.querySelectorAll(".nav-link");
+
+    hamburger.addEventListener("click", mobileMenu);
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function mobileMenu() {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+  <style>
+            table,
+            td {
+              border: 2px solid black;
+              font-family: "Roboto";
+              font-weight: 400;
+              text-align: center;
+            }
+            tbody td {
+              padding: 30px;
+            }
+
+            tbody tr:nth-child(odd) {
+              background-color: #c5cdd9;
+              color: #000000;
+            }
+            th {
+              border: 2px solid black;
+              font-family: "Roboto";
+              font-weight: 400;
+              text-align: center;
+              border: 1;
+            }
+            table {
+  margin:10px
+            }
+          </style>
+
+    <h2 style="text-align: center;">
+      <!--      <button style="font-size: 14px;" id="reportInput" onclick="myFunction()">-->
+      <!--        All Reports-->
+      <!--      </button>-->
+      <button
+        style="font-size: 14px; border-radius:8px; background-color:#FFFFFF; font-family: 'Roboto', sans-serif; font-weight: 400;"
+        id="reportInputYes"
+        onclick="window.location.href='/MARSapp/hmar/'"
+      >
+        Active Reports
+      </button>
+      <button
+        style="font-size: 14px; border-radius:8px; background-color:#FFFFFF; font-family: 'Roboto', sans-serif; font-weight: 400;"
+        onclick="window.location.href='/MARSapp/hmar/exportdata/'"
+      >
+        Export Table to CSV
+      </button>
+
+
+
+<!--      <button onclick="download_csv_file()"> Download CSV </button>-->
+
+
+<!--      <a href="{{seal_data}}" download="Seals">-->
+<!--         <button type="button">Download</button>-->
+<!--      </a>-->
+
+<!--      <input-->
+<!--        style="font-size: 16px; border-radius:8px; font-family: 'Roboto', sans-serif; font-weight: 400;"-->
+<!--        type="text"-->
+<!--        id="myInput"-->
+<!--        onkeyup="myFunction()"-->
+<!--        placeholder="Search"-->
+<!--      />-->
+    </h2>
+
+    <div >
+      <table
+        style="overflow-y: scroll; font-family: 'Roboto', sans-serif; font-weight: 400;"
+        align="center"
+        style="width: 90%"
+        style="max-height: 50px;"
+        style="display: block;"
+        id="DataTable"
+      >
+        <tr
+          style="text-align: center; background-color:#0973ba; color:#ffffff; font-family: 'Roboto', sans-serif; font-weight: 500;"
+        >
+          <th>Ticket Number</th>
+          <th>Date of Sighting</th>
+          <th>Time</th>
+          <th>Observer</th>
+          <th>Observer Contact Number</th>
+          <th>Observer Type</th>
+          <th>Location</th>
+          <th>Staff Completed Report?</th>
+        </tr>
+        {% for i in seal_archive %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+        {% for i in bird_archive %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+        {% for i in seal_data %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+          {% for i in bird_data %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+          {% for i in turtle_data %}
+        <tr style="text-align: center;">
+          <td><a href="{{ i.Ticket_Number }}" ;>{{ i.Ticket_Number }}</a></td>
+          <td>{{ i.Date }}</td>
+          <td>{{ i.Time }}</td>
+          <td>{{ i.Observer }}</td>
+          <td>{{ i.Observer_Contact_Number }}</td>
+          <td>{{ i.Observer_Type }}</td>
+          <td>{{ i.Location }}</td>
+          <td>Status</td>
+        </tr>
+        <tr>
+          {% endfor %}
+        <script>
+          function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("DataTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 1; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+        </script>
+      </table>
+    </div>
+  </head>
+</html>
