@@ -98,8 +98,11 @@ def sealsubmit(request):
                                        datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
     except IndexError:
-        #print(" ")
+        print(" ")
 #This is were the Lat and Long from the form will actually go (Temp values for uploading manually)
+
+
+
     user_lat = 21.6415
     user_long = -158.0671
 
@@ -210,7 +213,7 @@ def birdsubmit(request):
                                        datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
     except IndexError:
-        #print(" ")
+        print(" ")
 
     user_lat = 21.6415
     user_long = -158.0671
@@ -320,7 +323,7 @@ def turtlesubmit(request):
             filename = fs.put(myfile, _id = mongoID, filename= "OS" +  datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
     except IndexError:
-        #print(" ")
+        print(" ")
 
     user_lat = 21.6415
     user_long = -158.0671
