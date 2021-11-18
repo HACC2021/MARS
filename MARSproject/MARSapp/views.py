@@ -37,10 +37,8 @@ def home(request):
 def emergency(request):
     return render(request, 'emergency.html')
 
-
 def login(request):
     return render(request, 'login.html')
-
 
 def formselect(request):
     return render(request, 'animalselect.html')
@@ -100,7 +98,7 @@ def sealsubmit(request):
                                        datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
     except IndexError:
-        print(" ")
+        #print(" ")
 #This is were the Lat and Long from the form will actually go (Temp values for uploading manually)
     user_lat = 21.6415
     user_long = -158.0671
@@ -135,7 +133,7 @@ def sealsubmit(request):
             # print(diff_of_lat, diff_of_long)
 
             distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
-            print(distance)
+            #print(distance)
 
             # creating dict with beach name as key, then append distance
             beach_name = data["Location"]
@@ -212,7 +210,7 @@ def birdsubmit(request):
                                        datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
     except IndexError:
-        print(" ")
+        #print(" ")
 
     user_lat = 21.6415
     user_long = -158.0671
@@ -248,7 +246,7 @@ def birdsubmit(request):
             # print(diff_of_lat, diff_of_long)
 
             distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
-            print(distance)
+            #print(distance)
 
             # creating dict with beach name as key, then append distance
             beach_name = data["Location"]
@@ -280,7 +278,6 @@ def birdsubmit(request):
     reverseGeocode(coordinates)
 
     birdupload.insert_one(submission_dict)
-    return render(request, 'thankyoupage.html')
 
 
 def turtlesubmit(request):
@@ -323,7 +320,7 @@ def turtlesubmit(request):
             filename = fs.put(myfile, _id = mongoID, filename= "OS" +  datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
     except IndexError:
-        print(" ")
+        #print(" ")
 
     user_lat = 21.6415
     user_long = -158.0671
@@ -359,7 +356,7 @@ def turtlesubmit(request):
             # print(diff_of_lat, diff_of_long)
 
             distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
-            print(distance)
+            #print(distance)
 
             # creating dict with beach name as key, then append distance
             beach_name = data["Location"]
@@ -546,7 +543,6 @@ def hmar(request):
     #print(type(context["all_data"]))
     return render(request, 'activereports.html',context)
 
-
 # def archive(request):
 #     if not request.user.is_authenticated:
 #         return render(request, 'error.html')
@@ -580,10 +576,9 @@ def specificreport(request,ID):
         "seal_archive": seal_collection.find({}),
         "bird_archive": bird_collection.find({}),
         }
-        print("exportdata")
-        print(context["seal_archive"])
+        #print("exportdata")
+        #print(context["seal_archive"])
         return render(request, 'archivescript.html', context)
-
 
     else:
         type = ID[0]+ID[1]
@@ -700,13 +695,13 @@ def editform(request, ID):
             context = {
                 "report_data": sealupload.find({"Ticket_Number": ID}),
             }
-            print("upload")
+            #print("upload")
             break
         if i["Ticket_Number"] != ID:
             context = {
                 "report_data": seal_collection.find({"Ticket_Number": ID}),
             }
-            print("arch")
+            #print("arch")
 
     return render(request, 'seal_edit.html', context)
 
@@ -714,7 +709,7 @@ def editform(request, ID):
 def editredirect(request, ID):
     if not request.user.is_authenticated:
         return render(request, 'error.html')
-    print("ran")
+    #print("ran")
     context = {
         "seal_data" : sealupload.find({}),
         "bird_data" : birdupload.find({}),

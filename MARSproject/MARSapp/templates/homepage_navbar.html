@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>Home Page</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Add Style Elements Here -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+      html {
+        font-size: 62.5%;
+        font-family: "Roboto", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      li {
+        list-style: circle;
+        z-index: 100;
+        font-size: 20px;
+      }
+
+      .header {
+        border-bottom: 1px solid #E2E8F0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: #101010;
+      }
+
+      .nav-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-item {
+        margin-left: 5rem;
+      }
+
+      .nav-link {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #475569;
+      }
+
+      .nav-link:hover {
+        color: #482ff7;
+      }
+
+      .nav-logo {
+        font-size: 2.1rem;
+        font-weight: 500;
+        color: #482ff7;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          left: 100%;
+          top: 8rem;
+          flex-direction: column;
+          background-color: #fff;
+          width: 100%;
+          text-align: center;
+          transition: 0.3s;
+          box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-menu.active {
+          left: 0;
+        }
+
+        .nav-item {
+          margin: 2.5rem 0;
+        }
+
+        .hamburger {
+          display: block;
+          cursor: pointer;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+          -webkit-transform: translateY(8px) rotate(45deg);
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+          -webkit-transform: translateY(-8px) rotate(-45deg);
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    </style>
+
+    <style>
+                /*button stuff*/
+            .button1 {
+              width: 250px;
+              background-color: #0869A9;
+              vertical-align: center;
+            }
+
+            .button1:hover {
+            }
+
+            .button2 {
+              width: 250px;
+              background-color: #a91808;
+            }
+          /*image*/
+            img {
+              padding: 0;
+              display: block;
+              margin: 0;
+              max-height: 100%;
+              max-width: 100%;
+              object-fit: cover;
+            }
+
+
+          /*container*/
+
+            .container {
+              position: relative;
+              text-align: center;
+              color: white;
+              font-family: "Roboto";
+              padding: 0;
+              display: block;
+              margin: 0;
+              max-height: 100%;
+              max-width: 100%;
+            }
+
+            /*start of modal stuff*/
+
+
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0, 0, 0); /* Fallback color */
+              background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+              background-color: #fefefe;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+              text-align: center;
+              list-style: inside;
+            }
+
+            /* The Close Button */
+            .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+            }
+              /* end of modal stuff*/
+
+            html {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+            }
+              .text-center {k;
+              text-align: auto;
+              margin-left: 20px;
+              margin-right: 20px;k;
+              max-width: 800px;
+            }
+                /*center*/
+
+            .centered {
+              position: absolute;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            /*to center the text*/
+          .center {
+        margin: auto;
+        border: 3px solid white;
+        padding: 10px;
+      }
+
+
+      /*image-scaling*/
+       .post-page-head {
+      	  background: url("https://h-mar.org/wp-content/uploads/2018/09/ContactHeader-min.jpg") no-repeat top #101322;
+      	  background-size: cover;
+         background-position: center bottom;
+    background-position-x: center;
+    background-position-y: bottom;
+      	  padding: 40px 0;
+      	  min-height: 400px;
+          max-height: 600px;
+      }
+    .post-page-footer {
+      	  background: url("https://h-mar.org/wp-content/uploads/2018/09/ContactHeader-min.jpg") no-repeat top #101322;
+      	  background-size: cover;
+          background-position: center bottom;
+          background-position-x: center;
+          background-position-y: bottom;
+      	  padding: 40px 0;
+      	  min-height: 400px;
+          max-height: 400px;
+      }
+
+    </style>
+
+    <style>
+      #report {
+        border-radius: 10px;
+        width: 250px;
+        height: 70px;
+        font-size: 20px;
+      }
+
+      #report1 {
+        border-radius: 10px;
+        width: 250px;
+        height: 70px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <div>
+        <header class="header">
+          <nav class="navbar" style="z-index: 100;">
+            <a href="{% url 'home' %}" class="nav-logo">
+              <img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="60" height="60" style="margin-left: -10%;">
+            </a>
+            <ul class="nav-menu" style="list-style-type: none;">
+              <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'formselect' %}" class="nav-link">Report Sighting</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'emergency' %}" class="nav-link">Report Emergency</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'login'%}?next={{request.path}}" class="nav-link">Login</a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </nav>
+        </header>
+      </div>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLink = document.querySelectorAll(".nav-link");
+
+    hamburger.addEventListener("click", mobileMenu);
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function mobileMenu() {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+
+  <body>
+      <div
+      class="post-page-head row align-items-center m-0 px-3 px-md-5"
+      style='background-image: url("https://h-mar.org/wp-content/uploads/2019/05/Turtle2-min.jpg");'
+    >
+      <!--Header-->
+      <div class="container">
+
+    <div class="container">
+      <div class="centered">
+        <h1
+          style="font-size: 40px; font-family: 'Roboto', sans-serif; font-weight: 400"
+        >
+          Welcome to MARS
+        </h1>
+
+        <h2
+          style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 20"
+        >
+          Brought to you by HMAR
+        </h2>
+      </div>
+    </div>
+    </div>
+      </div>
+    </div>
+    <center>
+    <div class="center">
+      <div class="text-center">
+        <h2
+          style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 25px"
+        >
+          <div class="text-center">
+            <h2
+              style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 30px"
+            >
+              <br />What is MARS?
+            </h2>
+
+            <h8
+              style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 20px;"
+            >
+              Marine Animal Reporting Service (MARS) app reports animal
+              sightings that will give HMAR volunteers the information needed to
+              respond to issues regarding Hawaii's marine life.
+            </h8>
+          </div>
+          <br />
+          <!--on mobile the text goes all the way to the edge of the screen-->
+          <div class="text-center">
+            <h8
+              style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 20px"
+            >
+              __
+            </h8>
+
+            <br />
+          </div>
+          <div class="text-center">
+            <h2
+              style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 30px"
+            >
+              <br />Who is HMAR?
+            </h2>
+
+            <!--on mobile the text goes all the way to the edge of the screen-->
+            <div class="text-center">
+              <h8
+                style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 20px"
+              >
+                Hawaii Marine Animal Response (HMAR) is the largest Hawaii-based
+                nonprofit marine species conservation, education, field support,
+                rescue and stranding response organization
+              </h8>
+              <br />
+              <br />
+            </div>
+            <br />
+          </div>
+          <div class="text-center">
+            <margin> </margin>
+            <h2
+              style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 30px"
+            >
+              Report Sighting or Emergency
+            </h2>
+          </div>
+
+          <br />
+          <div class="text-center">
+            <form action="formselect/">
+              <button
+                class="btn-primary btn-lg button1"
+                id="report"
+                style="font-family: 'Roboto', sans-serif; font-weight: 400"
+                type="submit"
+              >
+                Report <br />Sighting
+              </button>
+            </form>
+            <br /><br />
+            <!-- Trigger/Open The Modal -->
+            <form action="emergency/">
+              <button
+                class="btn-danger btn-lg button2"
+                id="report1"
+                style="font-family: 'Roboto', sans-serif; font-weight: 400"
+              >
+                Report <br />Emergency
+                <!--           <span style="font-size: 12px;">888-256-9840</span> -->
+              </button>
+              <br />
+            </form>
+          </div>
+
+            <br />
+            <center>
+              <a
+                id="myBtn"
+                class="yes"
+                style="text-align: center; text-decoration: none; font-family: 'Roboto'; font-weight: 300; font-size: 20px"
+                >What is an Emergency?</a
+              >
+            </center>
+          </div>
+          <!--The Modal -->
+          <div id="myModal" class="modal" style=" overflow: hidden;">
+            <div class="modal-content" style="max-width: 800px">
+              <span class="close" style="position:relative; left:45%"
+                >&times;</span
+              >
+              <center>
+                <h3 style="margin: 0; font-family:'Roboto'; font-size: 25px">
+                  What counts as an emergency?
+                </h3>
+                <hr class="solid" style="width: 100%;" style="opacity: 0.2;" />
+                <container
+                  style="margin-left: auto; margin-right: auto; font-family: 'Roboto' display: block;"
+                >
+                  <p align="left" style="font-size: 20px">The animal is:</p>
+
+                  <ul style="line-height: 2">
+                    <li
+                      style="font-family: 'Roboto'; text-align:left; margin-left: 5%; font-size: 18px"
+                    >
+                      Caught on a hook.
+                    </li>
+                    <li
+                      style="font-family: 'Roboto'; text-align:left; margin-left: 5%; font-size: 18px"
+                    >
+                      Entangled/caught in a net.
+                    </li>
+                    <li
+                      style="font-family: 'Roboto'; text-align:left; margin-left: 5%; font-size: 18px"
+                    >
+                      Visibly injured.
+                    </li>
+                    <li
+                      style="font-family: 'Roboto'; text-align:left; margin-left: 5%; font-size: 18px"
+                    >
+                      Deceased.
+                    </li>
+                  </ul>
+
+                  <br />
+                </container>
+              </center>
+            </div>
+          </div>
+
+          <!-- <form action="https://h-mar.org/">-->
+
+          <br />
+
+          <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            btn.onclick = function() {
+              modal.style.display = "block";
+            };
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            };
+          </script>
+          <br />
+
+          <!--   </body> -->
+          <!-- </html> -->
+        </h2>
+      </div>
+      </center>
+      <footer>
+    <div class="post-page-footer row align-items-center m-0 px-3 px-md-5" style="background-image: url(&quot;https://i.imgur.com/cNZc2Za.png?1&quot;);"></div>
+  </footer>
+    </div>
+  </body>
+</html>

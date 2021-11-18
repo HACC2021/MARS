@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+    <title>HMAR Landing</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
-    <title>HMAR Landing Page</title>
 
     <container>
       <header>
@@ -22,15 +23,25 @@
           crossorigin="anonymous"
         />
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <img
-          src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-          style="vertical-align: middle;" width="50" height="50">
-          <a
-            class="navbar-brand"
-            >Hawaii Marine Animal Response</a
-          >
-                  <style>
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #FFFFFF;"
+      >
+        <header class="header" style="z-index: 1;">
+          <nav class="navbar">
+            <a href="{% url 'home' %}" class="nav-logo"
+              ><img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="50" height="50" style="margin-left: -30%;"></a
+            >
+          </nav>
+        </header>
+    </nav>
+
+
+
+
+    <style>
          #login {
             width: 100px;
             height: 35px;
@@ -58,7 +69,7 @@
             background-color: #FFFFFF;
             color: #0973ba;
           }
-        </style>
+     </style>
 
         <div style="position: fixed; right:5%; top:2%;">
           {% if user.is_authenticated %}
