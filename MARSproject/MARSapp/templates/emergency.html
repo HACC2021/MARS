@@ -181,14 +181,6 @@
               transform: translate(-50%, -50%);
             }
 
-            /*to center the text*/
-          .center {
-        margin: auto;
-        width: 60%;
-        border: 3px solid white;
-        padding: 10px;
-      }
-
 
       /*image-scaling*/
        .post-page-head {
@@ -233,9 +225,13 @@
               <li class="nav-item">
                 <a href="/MARSapp/emergency/" class="nav-link">Report Emergency</a>
               </li>
-              <li class="nav-item">
-                <a href="/accounts/login/" class="nav-link">Login</a>
-              </li>
+             <li class="nav-item">
+              {% if user.is_authenticated %}
+                <a href="{% url 'logout'%}?next=/" class="nav-link" id="logout">Logout</a>
+              {% else %}
+                <a href="{% url 'login'%}" class="nav-link" id="login">Login</a>
+              {% endif %}
+            </li>
             </ul>
             <div class="hamburger">
               <span class="bar"></span>
@@ -282,21 +278,23 @@
 
   <!-- Header End -->
 
-  <br />
+
   <body>
     <!-- this is the start of content -->
-  <div class="center">
-    <div class="text-center">
-      <p
-        style="font-size: 20px; background-color:#ffffff; border:2px; border-style:solid; border-color:#ffffff; padding: 1em; color:#3;font-weight: 300"
-      >
+  <br>
+  <br>
+  <br>
+
+
+  <div style="text-align: center;">
+      <p style="font-size: 20px; font-weight: 300;">
         If an animal is in distress or needs any immediate assistance please
         call the number below.
       </p>
 
-        <p
-          style="font-size: 20px; background-color:#ffffff; border:2px; border-style:solid; border-color:#ffffff; padding: 1em;font-weight: 300 "
-        >
+      <br>
+
+        <p style="font-size: 20px; font-weight: 300 ">
           <a
             href="tel:18882569840"
             class="btn btn-center-align btn-danger btn-lg"
@@ -310,7 +308,4 @@
   </div>
   </body>
   <br />
-  <footer>
-    <div class="post-page-head row align-items-center m-0 px-3 px-md-5" style="background-image: url(&quot;https://h-mar.org/wp-content/uploads/2019/04/shutterstock_1079402375-min.jpg&quot;);max-height: 100px;"></div>
-  </footer>
 </html>
