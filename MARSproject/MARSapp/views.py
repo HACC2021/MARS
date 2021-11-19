@@ -106,9 +106,10 @@ def sealsubmit(request):
         receiver_email = config("RECEIVER_EMAIL")
         password = config("EMAIL_PASSWORD")
         message = """\
-        Subject: Hi there
+        Subject: New Seal Report
 
-        This is an email."""
+        A New Seal Report has been submitted.  View the report on the MARS website.
+        https://mars-wv7zfnkmyq-uw.a.run.app/MARSapp/"""
 
         context = ssl.create_default_context()
         with smtplib.SMTP(smtp_server, port) as server:
@@ -239,9 +240,10 @@ def birdsubmit(request):
         receiver_email = config("RECEIVER_EMAIL")
         password = config("EMAIL_PASSWORD")
         message = """\
-        Subject: Hi there
+        Subject: New Bird Report
 
-        This is an email."""
+        A New Bird Report has been Submitted. View the report on the MARS website.
+        https://mars-wv7zfnkmyq-uw.a.run.app/MARSapp/"""
 
         context = ssl.create_default_context()
         with smtplib.SMTP(smtp_server, port) as server:
@@ -371,9 +373,10 @@ def turtlesubmit(request):
         receiver_email = config("RECEIVER_EMAIL")
         password = config("EMAIL_PASSWORD")
         message = """\
-        Subject: Hi there
+        Subject: New Turtle Report
 
-        This is an email."""
+        A new Turtle report has been submitted.  Check on the report on the MARS website.
+        https://mars-wv7zfnkmyq-uw.a.run.app/MARSapp/"""
 
         context = ssl.create_default_context()
         with smtplib.SMTP(smtp_server, port) as server:
