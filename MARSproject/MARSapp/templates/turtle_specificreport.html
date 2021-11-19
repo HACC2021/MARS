@@ -213,24 +213,25 @@
       <div>
         <header class="header">
           <nav class="navbar" style="z-index: 100;">
-            <a href="#" class="nav-logo"
+            <a href="{% url 'home' %}" class="nav-logo"
               ><img
               src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
               width="60" height="60" style="margin-left: -10%;"></a
             >
             <ul class="nav-menu">
-              <li class="nav-item">
-                <a href="#" class="nav-link">Services</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Contact</a>
-              </li>
+               <li class="nav-item">
+                  <a href="/MARSapp/hmar/" class="nav-link">Active</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/MARSapp/hmar/archive" class="nav-link">Archive</a>
+                </li>
+                <li class="nav-item">
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'logout'%}?next=/" class="nav-link" id="logout">Logout</a>
+                  {% else %}
+                    <a href="{% url 'login'%}" class="nav-link" id="login">Login</a>
+                  {% endif %}
+                </li>
             </ul>
             <div class="hamburger">
               <span class="bar"></span>

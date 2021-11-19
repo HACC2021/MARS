@@ -9,6 +9,7 @@ import reverse_geocoder as rg
 import numpy as np
 
 
+
 client = MongoClient(config('DB_HOST'))
 database = client["hacc_sample_database"]
 seal_collection = database["hacc_sample_seal_data"] #for all data
@@ -31,8 +32,7 @@ turtleFS = gridfs.GridFS(turtleimages)
 
 
 def home(request):
-    return render(request, 'homepage_final.html', )
-
+    return render(request, 'homepage_final.html')
 
 def emergency(request):
     return render(request, 'emergency.html')
@@ -868,7 +868,7 @@ def editredirect(request, ID):
         # print(editdict[i])
         db.find
 
-    return render(request, 'editsubmit.html',context)
+    return render(request, 'editsubmit_styled.html',context)
 
 
 #disabled for js only solution

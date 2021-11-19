@@ -3,7 +3,7 @@
 <head>
 
     <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
-    <title>Thank You Page</title>
+    <title>Submit Form Thank You Page </title>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -216,23 +216,20 @@
               src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
               width="60" height="60" style="margin-left: -10%;">
             </a>
-            <ul class="nav-menu" style="list-style-type: none;">
-              <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'formselect' %}" class="nav-link">Report Sighting</a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'emergency' %}" class="nav-link">Report Emergency</a>
-              </li>
-              <li class="nav-item">
-                {% if user.is_authenticated %}
-                  <a href="{% url 'logout'%}?next=/" class="nav-link" id="logout">Logout</a>
-                {% else %}
-                  <a href="{% url 'login'%}" class="nav-link" id="login">Login</a>
-                {% endif %}
-              </li>
+           <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="/MARSapp/hmar/" class="nav-link">Active</a>
+            </li>
+            <li class="nav-item">
+              <a href="/MARSapp/hmar/archive" class="nav-link">Archive</a>
+            </li>
+             <li class="nav-item">
+              {% if user.is_authenticated %}
+                <a href="{% url 'logout'%}?next=/" class="nav-link" id="logout">Logout</a>
+              {% else %}
+                <a href="{% url 'login'%}" class="nav-link" id="login">Login</a>
+              {% endif %}
+            </li>
             </ul>
             <div class="hamburger">
               <span class="bar"></span>
@@ -290,7 +287,7 @@
           <center>
             <button
               class="btn-primary btn-lg button1"
-              onclick="window.location.href='/MARSapp/'"
+              onclick="window.location.href='{% url 'hmar'%}'"
               style="font-size: 25px; font-family: 'Roboto', sans-serif; font-weight: 400"
               type="submit"
             >
