@@ -7,7 +7,7 @@ import codecs
 import math
 import reverse_geocoder as rg
 import numpy as np
-
+import smtplib, ssl
 
 
 client = MongoClient(config('DB_HOST'))
@@ -37,8 +37,10 @@ def home(request):
 def emergency(request):
     return render(request, 'emergency.html')
 
+
 def login(request):
     return render(request, 'login.html')
+
 
 def formselect(request):
     return render(request, 'animalselect.html')
@@ -97,14 +99,29 @@ def sealsubmit(request):
                               filename="OS" + datetime[5] + datetime[6] + datetime[8] + datetime[9] + datetime[2] +
                                        datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
+
+        port = 587  # For starttls
+        smtp_server = "smtp.gmail.com"
+        sender_email = config("SENDER_EMAIL")
+        receiver_email = config("RECEIVER_EMAIL")
+        password = config("EMAIL_PASSWORD")
+        message = """\
+        Subject: Hi there
+
+        This is an email."""
+
+        context = ssl.create_default_context()
+        with smtplib.SMTP(smtp_server, port) as server:
+            server.ehlo()  # Can be omitted
+            server.starttls(context=context)
+            server.ehlo()  # Can be omitted
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
     except IndexError:
         print(" ")
 #This is were the Lat and Long from the form will actually go (Temp values for uploading manually)
-
-
-
-    user_lat = 21.6415
-    user_long = -158.0671
+    user_lat = Latitude
+    user_long = Longitude
 
     diff_of_lat = 0
     diff_of_long = 0
@@ -114,55 +131,58 @@ def sealsubmit(request):
 
     '''pulling options using beach name'''
     def reverseGeocode(coordinates):
-        result = rg.search(coordinates)
-        for data in result:
-            locale_name = (data["name"])
-            # print(locale_name)
+        try:
+            result = rg.search(coordinates)
+            for data in result:
+                locale_name = (data["name"])
+                # print(locale_name)
 
-        # pulling coords with same name
-        myDoc = collectioncoordinates.find({"Name": locale_name})
-        for data in myDoc:
-            # print(data)
+            # pulling coords with same name
+            myDoc = collectioncoordinates.find({"Name": locale_name})
+            for data in myDoc:
+                # print(data)
 
-            # for squaring
-            loc_lat = data["Latitude"]
-            loc_lat = float(str(loc_lat))
-            diff_of_lat = user_lat - loc_lat
+                # for squaring
+                loc_lat = data["Latitude"]
+                loc_lat = float(str(loc_lat))
+                diff_of_lat = user_lat - loc_lat
 
-            loc_long = data["Longitude"]
-            loc_long = float(str(loc_long))
-            diff_of_long = user_long - loc_long
+                loc_long = data["Longitude"]
+                loc_long = float(str(loc_long))
+                diff_of_long = user_long - loc_long
 
-            # print(diff_of_lat, diff_of_long)
+                # print(diff_of_lat, diff_of_long)
 
-            distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
-            #print(distance)
+                distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
+                print(distance)
 
-            # creating dict with beach name as key, then append distance
-            beach_name = data["Location"]
+                # creating dict with beach name as key, then append distance
+                beach_name = data["Location"]
 
-            temp = {beach_name: distance}
-            compare_dict.update(temp)
+                temp = {beach_name: distance}
+                compare_dict.update(temp)
 
-        # print(compare_dict)
+            # print(compare_dict)
 
-        # now find smallest distance and print key
-        for value in compare_dict.values():
-            # print(value)
-            for_min.append(value)
+            # now find smallest distance and print key
+            for value in compare_dict.values():
+                # print(value)
+                for_min.append(value)
 
-        closest_distance = min(for_min)
-        # print("close", closest_distance)
-        # print("beach distances", for_min)
+            closest_distance = min(for_min)
+            # print("close", closest_distance)
+            # print("beach distances", for_min)
 
-        # create 0.0001 range around closest_distance, check if all values are within
-        # #  if in, print key
-        for key, value in compare_dict.items():
-            range = 0.0005  # 0.001 = 40 feet
-            if (closest_distance - range) <= value <= (closest_distance + range):
-                submission_dict["Location"] = key
-            else:
-                submission_dict["Location"] = ""
+            # create 0.0001 range around closest_distance, check if all values are within
+            # #  if in, print key
+            for key, value in compare_dict.items():
+                range = 0.0005  # 0.001 = 40 feet
+                if (closest_distance - range) <= value <= (closest_distance + range):
+                    submission_dict["Location"] = key
+                else:
+                    submission_dict["Location"] = ""
+        except:
+            submission_dict["Location"] = "Not Near Beach"
 
     coordinates = (user_lat, user_long)
     reverseGeocode(coordinates)
@@ -212,11 +232,29 @@ def birdsubmit(request):
                               filename="OB" + datetime[5] + datetime[6] + datetime[8] + datetime[9] + datetime[2] +
                                        datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
+
+        port = 587  # For starttls
+        smtp_server = "smtp.gmail.com"
+        sender_email = config("SENDER_EMAIL")
+        receiver_email = config("RECEIVER_EMAIL")
+        password = config("EMAIL_PASSWORD")
+        message = """\
+        Subject: Hi there
+
+        This is an email."""
+
+        context = ssl.create_default_context()
+        with smtplib.SMTP(smtp_server, port) as server:
+            server.ehlo()  # Can be omitted
+            server.starttls(context=context)
+            server.ehlo()  # Can be omitted
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
     except IndexError:
         print(" ")
 
-    user_lat = 21.6415
-    user_long = -158.0671
+    user_lat = Latitude
+    user_long = Longitude
 
     diff_of_lat = 0
     diff_of_long = 0
@@ -227,55 +265,58 @@ def birdsubmit(request):
     '''pulling options using beach name'''
 
     def reverseGeocode(coordinates):
-        result = rg.search(coordinates)
-        for data in result:
-            locale_name = (data["name"])
-            # print(locale_name)
+        try:
+            result = rg.search(coordinates)
+            for data in result:
+                locale_name = (data["name"])
+                # print(locale_name)
 
-        # pulling coords with same name
-        myDoc = collectioncoordinates.find({"Name": locale_name})
-        for data in myDoc:
-            # print(data)
+            # pulling coords with same name
+            myDoc = collectioncoordinates.find({"Name": locale_name})
+            for data in myDoc:
+                # print(data)
 
-            # for squaring
-            loc_lat = data["Latitude"]
-            loc_lat = float(str(loc_lat))
-            diff_of_lat = user_lat - loc_lat
+                # for squaring
+                loc_lat = data["Latitude"]
+                loc_lat = float(str(loc_lat))
+                diff_of_lat = user_lat - loc_lat
 
-            loc_long = data["Longitude"]
-            loc_long = float(str(loc_long))
-            diff_of_long = user_long - loc_long
+                loc_long = data["Longitude"]
+                loc_long = float(str(loc_long))
+                diff_of_long = user_long - loc_long
 
-            # print(diff_of_lat, diff_of_long)
+                # print(diff_of_lat, diff_of_long)
 
-            distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
-            #print(distance)
+                distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
+                print(distance)
 
-            # creating dict with beach name as key, then append distance
-            beach_name = data["Location"]
+                # creating dict with beach name as key, then append distance
+                beach_name = data["Location"]
 
-            temp = {beach_name: distance}
-            compare_dict.update(temp)
+                temp = {beach_name: distance}
+                compare_dict.update(temp)
 
-        # print(compare_dict)
+            # print(compare_dict)
 
-        # now find smallest distance and print key
-        for value in compare_dict.values():
-            # print(value)
-            for_min.append(value)
+            # now find smallest distance and print key
+            for value in compare_dict.values():
+                # print(value)
+                for_min.append(value)
 
-        closest_distance = min(for_min)
-        # print("close", closest_distance)
-        # print("beach distances", for_min)
+            closest_distance = min(for_min)
+            # print("close", closest_distance)
+            # print("beach distances", for_min)
 
-        # create 0.0001 range around closest_distance, check if all values are within
-        # #  if in, print key
-        for key, value in compare_dict.items():
-            range = 0.0005  # 0.001 = 40 feet
-            if (closest_distance - range) <= value <= (closest_distance + range):
-                submission_dict["Location"] = key
-            else:
-                submission_dict["Location"] = ""
+            # create 0.0001 range around closest_distance, check if all values are within
+            # #  if in, print key
+            for key, value in compare_dict.items():
+                range = 0.0005  # 0.001 = 40 feet
+                if (closest_distance - range) <= value <= (closest_distance + range):
+                    submission_dict["Location"] = key
+                else:
+                    submission_dict["Location"] = ""
+        except:
+            submission_dict["Location"] = "Not Near Beach"
 
     coordinates = (user_lat, user_long)
     reverseGeocode(coordinates)
@@ -323,11 +364,30 @@ def turtlesubmit(request):
             fs = gridfs.GridFS(turtleimages)
             filename = fs.put(myfile, _id = mongoID, filename= "OS" +  datetime[5] + datetime[6] + datetime[8]+datetime[9]+datetime[2]+datetime[3] + datetime[11] + datetime[12] + datetime[14] + datetime[15])
         submission_dict["imageID"] = mongoID
+
+        port = 587  # For starttls
+        smtp_server = "smtp.gmail.com"
+        sender_email = config("SENDER_EMAIL")
+        receiver_email = config("RECEIVER_EMAIL")
+        password = config("EMAIL_PASSWORD")
+        message = """\
+        Subject: Hi there
+
+        This is an email."""
+
+        context = ssl.create_default_context()
+        with smtplib.SMTP(smtp_server, port) as server:
+            server.ehlo()  # Can be omitted
+            server.starttls(context=context)
+            server.ehlo()  # Can be omitted
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
+
     except IndexError:
         print(" ")
 
-    user_lat = 21.6415
-    user_long = -158.0671
+    user_lat = Latitude
+    user_long = Longitude
 
     diff_of_lat = 0
     diff_of_long = 0
@@ -338,55 +398,59 @@ def turtlesubmit(request):
     '''pulling options using beach name'''
 
     def reverseGeocode(coordinates):
-        result = rg.search(coordinates)
-        for data in result:
-            locale_name = (data["name"])
-            # print(locale_name)
+        try:
+            result = rg.search(coordinates)
+            for data in result:
+                locale_name = (data["name"])
+                # print(locale_name)
 
-        # pulling coords with same name
-        myDoc = collectioncoordinates.find({"Name": locale_name})
-        for data in myDoc:
-            # print(data)
+            # pulling coords with same name
+            myDoc = collectioncoordinates.find({"Name": locale_name})
+            for data in myDoc:
+                # print(data)
 
-            # for squaring
-            loc_lat = data["Latitude"]
-            loc_lat = float(str(loc_lat))
-            diff_of_lat = user_lat - loc_lat
+                # for squaring
+                loc_lat = data["Latitude"]
+                loc_lat = float(str(loc_lat))
+                diff_of_lat = user_lat - loc_lat
 
-            loc_long = data["Longitude"]
-            loc_long = float(str(loc_long))
-            diff_of_long = user_long - loc_long
+                loc_long = data["Longitude"]
+                loc_long = float(str(loc_long))
+                diff_of_long = user_long - loc_long
 
-            # print(diff_of_lat, diff_of_long)
+                # print(diff_of_lat, diff_of_long)
 
-            distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
-            #print(distance)
+                distance = math.sqrt(math.pow(diff_of_lat, 2) + math.pow(diff_of_long, 2))
+                print(distance)
 
-            # creating dict with beach name as key, then append distance
-            beach_name = data["Location"]
+                # creating dict with beach name as key, then append distance
+                beach_name = data["Location"]
 
-            temp = {beach_name: distance}
-            compare_dict.update(temp)
+                temp = {beach_name: distance}
+                compare_dict.update(temp)
 
-        # print(compare_dict)
+            # print(compare_dict)
 
-        # now find smallest distance and print key
-        for value in compare_dict.values():
-            # print(value)
-            for_min.append(value)
+            # now find smallest distance and print key
+            for value in compare_dict.values():
+                # print(value)
+                for_min.append(value)
 
-        closest_distance = min(for_min)
-        # print("close", closest_distance)
-        # print("beach distances", for_min)
+            closest_distance = min(for_min)
+            # print("close", closest_distance)
+            # print("beach distances", for_min)
 
-        # create 0.0001 range around closest_distance, check if all values are within
-        # #  if in, print key
-        for key, value in compare_dict.items():
-            range = 0.0005  # 0.001 = 40 feet
-            if (closest_distance - range) <= value <= (closest_distance + range):
-                submission_dict["Location"] = key
-            else:
-                submission_dict["Location"] = ""
+            # create 0.0001 range around closest_distance, check if all values are within
+            # #  if in, print key
+            for key, value in compare_dict.items():
+                range = 0.0005  # 0.001 = 40 feet
+                if (closest_distance - range) <= value <= (closest_distance + range):
+                    submission_dict["Location"] = key
+                else:
+                    submission_dict["Location"] = ""
+
+        except:
+            submission_dict["Location"] = "Not Near Beach"
 
     coordinates = (user_lat, user_long)
     reverseGeocode(coordinates)
@@ -395,7 +459,7 @@ def turtlesubmit(request):
     return render(request, 'thankyoupage.html')
 
 
-
+#Base submit form function
 # def submitform(request, animal):
 #      #temporarily turning off image to prove concept
 #      # result = sealupload.find({}, {"_id": 1})
@@ -538,7 +602,6 @@ def turtlesubmit(request):
 def hmar(request):
     if not request.user.is_authenticated:
         return render(request, 'error.html')
-
     context = {
         "seal_data" : sealupload.find({}),
         "bird_data" : birdupload.find({}),
@@ -546,6 +609,7 @@ def hmar(request):
     }
     #print(type(context["all_data"]))
     return render(request, 'activereports.html',context)
+
 
 # def archive(request):
 #     if not request.user.is_authenticated:
@@ -584,6 +648,7 @@ def specificreport(request,ID):
         #print(context["seal_archive"])
         return render(request, 'archivescript.html', context)
 
+
     else:
         type = ID[0]+ID[1]
         if type == "OS":
@@ -616,14 +681,14 @@ def specificreport(request,ID):
                         "report_data": sealupload.find({"Ticket_Number": ID}),
                         "grid_data": y
                     }
-                    print("upload")
+                    # print("upload")
                     break
                 if i["Ticket_Number"] != ID:
                     context = {
                         "report_data": seal_collection.find({"Ticket_Number": ID}),
                         "grid_data": y
                     }
-                    print("arch")
+                    # print("arch")
 
             return render(request, 'seal_specificreport.html', context=context)
         if type == "OT":
@@ -855,18 +920,17 @@ def editredirect(request, ID):
             db = seal_collection
 
 
-    # print(editdict)
-    test = db.find({"Ticket_Number": editdict["Ticket_Number"]})
-    for i in test:
-        print(i)
-
+    # # print(editdict)
+    # test = db.find({"Ticket_Number": editdict["Ticket_Number"]})
+    # for i in test:
+    #     print(i)
+    # 
     # db.update({"Ticket_Number": editdict["Ticket_Number"]}, {"$set": {"testfield": "test"}})
-
+    print(db)
     for i in editdict:
         print(i)
         db.update({"Ticket_Number": editdict["Ticket_Number"]}, {"$set":{i:editdict[i]}} )
         # print(editdict[i])
-        db.find
 
     return render(request, 'editsubmit_styled.html',context)
 

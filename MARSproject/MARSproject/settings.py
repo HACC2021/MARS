@@ -143,3 +143,5 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'MARSproject/polished-citron-331519-02afac49b6bb.json')
 )
 GS_DEFAULT_ACL = 'authenticatedRead'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
