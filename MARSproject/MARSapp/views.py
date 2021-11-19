@@ -281,6 +281,7 @@ def birdsubmit(request):
     reverseGeocode(coordinates)
 
     birdupload.insert_one(submission_dict)
+    return render(request, 'thankyoupage.html')
 
 
 def turtlesubmit(request):
