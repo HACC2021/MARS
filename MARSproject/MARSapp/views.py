@@ -37,9 +37,7 @@ def home(request):
 def emergency(request):
     return render(request, 'emergency.html')
 
-from django.views.decorators.cache import never_cache
 
-@never_cache
 def login(request):
     return render(request, 'login.html')
 
@@ -604,7 +602,6 @@ def turtlesubmit(request):
 def hmar(request):
     if not request.user.is_authenticated:
         return render(request, 'error.html')
-    print(request.user.get_username)
     context = {
         "seal_data" : sealupload.find({}),
         "bird_data" : birdupload.find({}),
@@ -647,8 +644,8 @@ def specificreport(request,ID):
         "seal_archive": seal_collection.find({}),
         "bird_archive": bird_collection.find({}),
         }
-        print("exportdata")
-        print(context["seal_archive"])
+        #print("exportdata")
+        #print(context["seal_archive"])
         return render(request, 'archivescript.html', context)
 
 
@@ -767,13 +764,13 @@ def editform(request, ID):
             context = {
                 "report_data": sealupload.find({"Ticket_Number": ID}),
             }
-            print("upload")
+            #print("upload")
             break
         if i["Ticket_Number"] != ID:
             context = {
                 "report_data": seal_collection.find({"Ticket_Number": ID}),
             }
-            print("arch")
+            #print("arch")
 
     return render(request, 'seal_edit.html', context)
 
@@ -781,7 +778,7 @@ def editform(request, ID):
 def editredirect(request, ID):
     if not request.user.is_authenticated:
         return render(request, 'error.html')
-    print("ran")
+    #print("ran")
     context = {
         "seal_data" : sealupload.find({}),
         "bird_data" : birdupload.find({}),
@@ -931,10 +928,7 @@ def editredirect(request, ID):
     # db.update({"Ticket_Number": editdict["Ticket_Number"]}, {"$set": {"testfield": "test"}})
     print(db)
     for i in editdict:
-        # print(i)
-        # post = db.find({"Ticket_Number": editdict["Ticket_Number"]})
-        # for i in post:
-        #     print(i)
+        print(i)
         db.update({"Ticket_Number": editdict["Ticket_Number"]}, {"$set":{i:editdict[i]}} )
         # print(editdict[i])
 

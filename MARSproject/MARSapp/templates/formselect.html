@@ -1,55 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- CSS Bootstrap -->
-  <head>
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous"
-  />
   <link rel="icon" href="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" />
+  <title>Animal Selection</title>
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
-    rel="stylesheet"
+       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+       rel="stylesheet"
   />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Animal Selection</title>
 
-    </head> 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <img
-      src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
-      style="vertical-align: middle;" width="60" height="60">
-
-<!--       <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+    <nav
+        class="navbar navbar-expand-lg navbar-light"
+        style="background-color: #FFFFFF;"
       >
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <!-- optional button you dont have to add this-->
+        <header class="header" style="z-index: 1;">
+          <nav class="navbar">
+            <a href="{% url 'home' %}" class="nav-logo"
+              ><img
+              src=https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png
+              width="50" height="50" style="margin-left: -30%;"></a
+            >
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'formselect' %}" class="nav-link">Report Sighting</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'emergency' %}" class="nav-link">Report Emergency</a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </nav>
+        </header>
 
-      <!--   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">home</a>
-            </li>
-          </ul>
-        </div>
-        -->
+        <style>
+          @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
 
-      <!--end BUT DONT FORGET </nav>-->
-    </nav>
-    <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+
+          html {
+            font-size: 62.5%;
+            font-family: "Roboto", sans-serif;
+          }
+
+          li {
+            list-style: none;
+            z-index: 100;
+          }
+
+          a {
+            text-decoration: none;
+          }
+
+          .header {
+            border-bottom: 1px solid #E2E8F0;
+          }
+
+          .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+          }
+
+          .hamburger {
+            display: none;
+          }
+
+          .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: #101010;
+          }
+
+          .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .nav-item {
+            margin-left: 5rem;
+          }
+
+          .nav-link {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #475569;
+          }
+
+          .nav-link:hover {
+            color: #482ff7;
+          }
+
+          .nav-logo {
+            font-size: 2.1rem;
+            font-weight: 500;
+            color: #482ff7;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .nav-menu {
+              position: fixed;
+              left: -100%;
+              top: 5rem;
+              flex-direction: column;
+              background-color: #fff;
+              width: 100%;
+              border-radius: 10px;
+              text-align: center;
+              transition: 0.3s;
+              box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+              left: 0;
+            }
+
+            .nav-item {
+              margin: 2.5rem 0;
+            }
+
+            .hamburger {
+              display: block;
+              cursor: pointer;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+              opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+              -webkit-transform: translateY(8px) rotate(45deg);
+              transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+              -webkit-transform: translateY(-8px) rotate(-45deg);
+              transform: translateY(-8px) rotate(-45deg);
+            }
+            .text-center {
+              margin-left: 20px;
+              margin-right: 20px
+            }
+          }
+        </style>
+
+        <script>
+          const hamburger = document.querySelector(".hamburger");
+          const navMenu = document.querySelector(".nav-menu");
+          const navLink = document.querySelectorAll(".nav-link");
+
+          hamburger.addEventListener("click", mobileMenu);
+          navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+          function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+          }
+
+          function closeMenu() {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          }
+        </script>
+
+      </nav>
+  </head>
+
+<style>
 
   button {
     width: 150px;
@@ -113,9 +253,12 @@
     height:auto;
     display:inline-block;
 }
+  .text-center {
+    margin-left: 20px;
+    margin-right: 20px
+  }
 
-  </style>
-  </header>
+</style>
 
 
   <!--Header-->
